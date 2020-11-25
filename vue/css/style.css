@@ -1,9 +1,23 @@
 .bloc{
-    position: relative;
-    border-radius: 8px;
-    top: 100px;
-    background-color: rgba(17,17,26,0.90);
-    padding: 10px;
+  position: relative;
+  width: 457px;
+  height: 600px;
+  left: 152px;
+  top: 152px;
+  background: #212121;
+  box-shadow: 26px 24px 7px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  min-width: 300px;
+}
+.titre{
+  text-align: center;
+  padding: 40px;
+  text-transform: uppercase;
+
+}
+.soustitre{
+  position: relative;
+  left: 25px;
 }
 body {
     background-image: url("../images/background1.jpeg");
@@ -15,6 +29,14 @@ body {
     height: 100%;
 
 }
+
+.etatConnection{
+  color: greenyellow;
+  /*color:red;*/
+}
+
+
+
 body {
   font-family: "Lato", sans-serif;
 }
@@ -39,14 +61,23 @@ body {
   display: block;
 }
 
+.saisie{
+  position: relative;
+  background-color: #1B1B1B;
+  color: white;
+}
+.bouton{
+  position: relative;
+}
 .sidenav a:hover {
   color: #f1f1f1;
 }
 
 .main {
-  margin-left: 160px; /* Same as the width of the sidenav */
+  margin-left: 0px; /* Same as the width of the sidenav */
   font-size: 28px; /* Increased text to enable scrolling */
   padding: 0px 10px;
+  background-color: red;
 }
 
 @media screen and (max-height: 450px) {
