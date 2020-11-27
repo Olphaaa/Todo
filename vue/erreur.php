@@ -35,7 +35,7 @@
         ?>
     </div>
     <div style=" position: absolute; bottom: 25px;" class="row">
-       <input class="btn btn-light" value="Retour">
+        <a href="../index.php" class="btn btn-light" role="button">Retour</a>
     </div>
 </div>
 </body>
