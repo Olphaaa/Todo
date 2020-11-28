@@ -1,6 +1,5 @@
 <?php
 
-
 class Tache
 {
     private $titre;

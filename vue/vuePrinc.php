@@ -25,6 +25,9 @@
                                 <h1>Taches:</h1>
                             </div>
                             <!-- Mettre ici la liste des taches du l'utilisateur donné-->
+                            <?php
+
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -36,9 +39,9 @@
                                 <h1>Ajouter:</h1>
                             </div>
                             <div class="row  mx-auto">
-                                <form>
+                                <form method="post" name="myform" id="myform">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Nom de tache</label>
+                                        <label for="inputNom">Nom de tache</label>
                                         <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache">
                                     </div>
                                     <div class="form-group">
@@ -46,10 +49,10 @@
                                         <textarea class="form-control" id="zoneText"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="datePicker">Date prévu</label>
+                                        <label for="inputDate">Date prévu</label>
                                         <input type="date" class="form-control" id="inputDate"/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Ajouter</button>
+                                    <button type="submit" class="btn btn-primary" name="action" value="validationFormulaire">Ajouter</button>
                                 </form>
                             </div>
                         </div>
