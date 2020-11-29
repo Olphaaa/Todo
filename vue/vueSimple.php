@@ -8,11 +8,11 @@
     <meta charset="UTF-8"/>
 </head>
 
-<body style="background-color: #212121; " class="text-light">
+<body >
 
     <div>
         <div>
-            <h1>Taches:</h1>
+            <h1>coucou je suis la:</h1>
         </div>
         <!-- Mettre ici la liste des taches du l'utilisateur donné-->
         <ol>

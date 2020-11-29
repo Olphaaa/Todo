@@ -22,10 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[DEV]">
+    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[DEV] affichage de la liste des tache de la base de données OK">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/Autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/Controleur.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/vue.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vue.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/vuePrinc.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vuePrinc.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vue/vueSimple.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vueSimple.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +78,7 @@
       <workItem from="1606411444889" duration="2730000" />
       <workItem from="1606499901982" duration="1843000" />
       <workItem from="1606586429504" duration="12482000" />
-      <workItem from="1606637796220" duration="10449000" />
+      <workItem from="1606637796220" duration="13470000" />
     </task>
     <task id="LOCAL-00001" summary="[DEV] ajout de la page d'erreur, de la classe connection et arboressance MVC">
       <created>1606294803133</created>
@@ -114,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606641201879</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[DEV] affichage de la liste des tache de la base de données OK">
+      <created>1606657834088</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1606657834088</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,7 +146,8 @@
     <MESSAGE value="[DEV] réorganisation des l'arboraissance&#10;[DEV] fichier testTaches.php sert a ajotuer des taches et/ou les afficher" />
     <MESSAGE value="[DEV] petites modifications" />
     <MESSAGE value="[DEV]" />
-    <option name="LAST_COMMIT_MESSAGE" value="[DEV]" />
+    <MESSAGE value="[DEV] affichage de la liste des tache de la base de données OK" />
+    <option name="LAST_COMMIT_MESSAGE" value="[DEV] affichage de la liste des tache de la base de données OK" />
   </component>
   <component name="WindowStateProjectService">
     <state x="669" y="304" key="#Notifications" timestamp="1606586764674">
