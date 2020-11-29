@@ -30,15 +30,15 @@ class Autoload
         }
     }
 
-    private static function _autoload($class)
+    private static function _autoload($class) //permet de charger les classes
     {
         global $rep;
         $filename = $class . '.php';
-        $dir = array('modeles/', './', 'config/', 'controleur/');// charge tout ca
+        $dir = array('modeles/','modeles/tache/','modeles/connection/' ,'./', 'config/', 'controleur/');// charge tout ca
         foreach ($dir as $d) {
             $file = $rep . $d . $filename;
-            //echo $file;
             if (file_exists($file)) {
+                echo $file."<br/>";
                 include $file;
             }
         }

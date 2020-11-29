@@ -1,7 +1,7 @@
 <?php
 
 //gen
-$rep=__DIR__.'/../'; //permet de partir de la racine du projet
+$rep=__DIR__.'/../'; //permet de partir de la racine du projet __DIR__='G:\wamp64\www\iut\projet\...'
 
 // liste des modules à inclure
 

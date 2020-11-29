@@ -5,7 +5,7 @@
 
 <?php
 
-require("../Connection/Connection.php");
+require("../connection/Connection.php");
 require("TacheGateway.php");
 //$t = new Tache("Dire bonour a la dame", "ne pas oublier de se moucher le nez",);
 $user="olblanc1";

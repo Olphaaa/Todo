@@ -52,10 +52,14 @@ class Controleur {
     function Reinit() { //sert a mettre des champs par défaut quand on ajouter une nouvelle tache dans le formulaire
         global $rep,$vues; // nécessaire pour utiliser variables globales
         // ↓ faire ca pour les tache!!!!
-        $dVue = array (
+        /*$dVue = array (
             'nom' => "",
             'age' => 0,
-        );
+        );*/
+        //require_once ("modeles/tache/TacheGateway.php");
+       // require_once ("controleur/Controleur.php");
+        //$gateway = new TacheGateway(new connection("mysql:host=localhost;dbname=dbolblanc1;","olblanc1", "mdp"));
+
         require ($rep.$vues['vuePrinc']);
     }
 

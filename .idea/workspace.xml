@@ -19,22 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[FEATURE] Modification de la page vu princpale pour pouvoir a la suite ajouter des taches (voir pour faire en sorte que dans les blocs noirs, tout soit horizontal)">
-      <change afterPath="$PROJECT_DIR$/config/Autoload.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue/vueSimple.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[DEV] petites modifications">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/Autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controleur/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/Controleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controleur/Validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Connection/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/Connection/Connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Connection/Tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/tache/Tache.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Connection/TacheGateway.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/tache/TacheGateway.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Connection/testTaches.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/tache/testTaches.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Tache.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/erreur.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/erreur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/vuePrinc.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vuePrinc.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeles/Connection/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/connection/Connection.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modeles/tache/testTaches.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/tache/testTaches.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/css/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +49,7 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/config" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -84,7 +76,8 @@
       <workItem from="1606290485705" duration="3875000" />
       <workItem from="1606411444889" duration="2730000" />
       <workItem from="1606499901982" duration="1843000" />
-      <workItem from="1606586429504" duration="12189000" />
+      <workItem from="1606586429504" duration="12482000" />
+      <workItem from="1606637796220" duration="3139000" />
     </task>
     <task id="LOCAL-00001" summary="[DEV] ajout de la page d'erreur, de la classe connection et arboressance MVC">
       <created>1606294803133</created>
@@ -100,7 +93,21 @@
       <option name="project" value="LOCAL" />
       <updated>1606510125694</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="[FEATURE] Modification de la page vu princpale pour pouvoir a la suite ajouter des taches (voir pour faire en sorte que dans les blocs noirs, tout soit horizontal)">
+      <created>1606602223045</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1606602223045</updated>
+    </task>
+    <task id="LOCAL-00004" summary="[DEV] petites modifications">
+      <created>1606638244466</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1606638244466</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,7 +128,9 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="[DEV] ajout de la page d'erreur, de la classe connection et arboressance MVC" />
     <MESSAGE value="[FEATURE] Modification de la page vu princpale pour pouvoir a la suite ajouter des taches (voir pour faire en sorte que dans les blocs noirs, tout soit horizontal)" />
-    <option name="LAST_COMMIT_MESSAGE" value="[FEATURE] Modification de la page vu princpale pour pouvoir a la suite ajouter des taches (voir pour faire en sorte que dans les blocs noirs, tout soit horizontal)" />
+    <MESSAGE value="[DEV] réorganisation des l'arboraissance&#10;[DEV] fichier testTaches.php sert a ajotuer des taches et/ou les afficher" />
+    <MESSAGE value="[DEV] petites modifications" />
+    <option name="LAST_COMMIT_MESSAGE" value="[DEV] petites modifications" />
   </component>
   <component name="WindowStateProjectService">
     <state x="669" y="304" key="#Notifications" timestamp="1606586764674">
@@ -156,10 +165,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="351" y="78" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606594506813" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606587234482">
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606638268093">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606587234482" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606638268093" />
     <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606510133949" />
     <state x="737" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606586487707">
       <screen x="0" y="0" width="1920" height="1040" />
