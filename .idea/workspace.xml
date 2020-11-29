@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,14 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[DEV] petites modifications">
+    <list default="true" id="2bd6d504-84b8-4e57-a3da-abfe52cddba7" name="Default Changelist" comment="[DEV]">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/Autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/Autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/controleur/Controleur.php" beforeDir="false" afterPath="$PROJECT_DIR$/controleur/Controleur.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/Connection/Connection.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/connection/Connection.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modeles/tache/testTaches.php" beforeDir="false" afterPath="$PROJECT_DIR$/modeles/tache/testTaches.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/vueSimple.php" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vueSimple.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +77,7 @@
       <workItem from="1606411444889" duration="2730000" />
       <workItem from="1606499901982" duration="1843000" />
       <workItem from="1606586429504" duration="12482000" />
-      <workItem from="1606637796220" duration="3139000" />
+      <workItem from="1606637796220" duration="10449000" />
     </task>
     <task id="LOCAL-00001" summary="[DEV] ajout de la page d'erreur, de la classe connection et arboressance MVC">
       <created>1606294803133</created>
@@ -107,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1606638244466</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="[DEV]">
+      <created>1606641201879</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1606641201879</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -130,7 +137,8 @@
     <MESSAGE value="[FEATURE] Modification de la page vu princpale pour pouvoir a la suite ajouter des taches (voir pour faire en sorte que dans les blocs noirs, tout soit horizontal)" />
     <MESSAGE value="[DEV] réorganisation des l'arboraissance&#10;[DEV] fichier testTaches.php sert a ajotuer des taches et/ou les afficher" />
     <MESSAGE value="[DEV] petites modifications" />
-    <option name="LAST_COMMIT_MESSAGE" value="[DEV] petites modifications" />
+    <MESSAGE value="[DEV]" />
+    <option name="LAST_COMMIT_MESSAGE" value="[DEV]" />
   </component>
   <component name="WindowStateProjectService">
     <state x="669" y="304" key="#Notifications" timestamp="1606586764674">
@@ -165,18 +173,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="351" y="78" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606594506813" />
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606638268093">
+    <state width="629" height="498" key="SwitcherDM" timestamp="1606654356851">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606638268093" />
+    <state width="629" height="498" key="SwitcherDM/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606654356851" />
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2" timestamp="1606641327172">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606641327172" />
     <state x="452" y="189" key="Vcs.Push.Dialog.v2/-1920.0.1920.1040/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1606510133949" />
-    <state x="737" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606586487707">
+    <state x="737" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606641324984">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="737" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606586487707" />
-    <state x="539" y="5" key="search.everywhere.popup" timestamp="1606600698294">
+    <state x="737" y="416" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606641324984" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup" timestamp="1606657536675">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="539" y="5" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606600698294" />
+    <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1606657536675" />
   </component>
 </project>

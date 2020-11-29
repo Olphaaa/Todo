@@ -15,11 +15,18 @@
             <h1>Taches:</h1>
         </div>
         <!-- Mettre ici la liste des taches du l'utilisateur donné-->
-        <?php
-            
-        ?>
-    </div>
+        <ol>
 
+        </ol>
+        <?php
+        if (isset($dVue))
+            foreach ($dVue as $r){
+                echo "<li>".$r['Titre'].": ".$r['Description']."</li>";
+                echo "<br/>";
+            }
+        ?>
+
+    </div>
 
     <form method="post" name="myform" id="myform" style="width: 600px">
         <div class="form-group">

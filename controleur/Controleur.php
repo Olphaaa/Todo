@@ -14,8 +14,7 @@ class Controleur {
         $dVueEreur = array ();
 
         try{
-            $action=$_REQUEST['action'];
-            //il faut valider
+            $action=$_REQUEST['action'];//il faut valider
             switch($action) {
                 //pas d'action, on r�initialise 1er appel
                 case NULL:
@@ -51,36 +50,39 @@ class Controleur {
 
     function Reinit() { //sert a mettre des champs par défaut quand on ajouter une nouvelle tache dans le formulaire
         global $rep,$vues; // nécessaire pour utiliser variables globales
-        // ↓ faire ca pour les tache!!!!
-        /*$dVue = array (
-            'nom' => "",
-            'age' => 0,
-        );*/
-        //require_once ("modeles/tache/TacheGateway.php");
-       // require_once ("controleur/Controleur.php");
-        //$gateway = new TacheGateway(new connection("mysql:host=localhost;dbname=dbolblanc1;","olblanc1", "mdp"));
+
+        $gateway = new TacheGateway(new connection("mysql:host=localhost;dbname=dbolblanc1;","olblanc1", "mdp"));
+        $res=$gateway->getResult();
+        foreach ($res as $r)
+        {
+            $dTmp=array(
+                'Titre'=>$r->getTitre(),
+                'Description'=>$r->getDescription()
+            );
+            $dVue[]=$dTmp;
+        }
 
         require ($rep.$vues['vuePrinc']);
     }
 
     function ValidationFormulaire(array $dVueEreur) {
-        global $rep,$vues;
+        global $rep, $vues;
 
 
         //si exception, ca remonte !!!
-        $nom=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
-        $age=$_POST['txtAge'];
-        Validation::val_form($nom,$age,$dVueEreur);
+        $nom = $_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
+        $age = $_POST['txtAge'];
+        Validation::val_form($nom, $age, $dVueEreur);
 
         $model = new Simplemodel();
-        $data=$model->get_data();
+        $data = $model->get_data();
 
-        $dVue = array (
-            'nom' => $nom,
+        $dVue = array( //TODO: adapter pour une tache
+            'Titre' => $nom,
             'age' => $age,
             'data' => $data,
         );
-        require ($rep.$vues['vuePrinc']);
+        require($rep . $vues['vuePrinc']);
     }
 
 }//fin class

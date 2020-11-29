@@ -38,7 +38,6 @@ class Autoload
         foreach ($dir as $d) {
             $file = $rep . $d . $filename;
             if (file_exists($file)) {
-                echo $file."<br/>";
                 include $file;
             }
         }
