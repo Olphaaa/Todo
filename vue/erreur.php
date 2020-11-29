@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <?php
-        if (isset($dVueErreur)){
+        if (isset($dVueErreur) && count($dVueErreur)>0){
             foreach ($dVueErreur as $val)
             {
                 echo $val;
@@ -33,9 +33,10 @@
             echo "Pas d'erreur";
         }
         ?>
+        <!--?= $dVue['data']?NON FONCTIONNEL mais sert a afficher dvue si il n'est pas vide-->
     </div>
     <div style=" position: absolute; bottom: 25px;" class="row">
-       <input class="btn btn-light" value="Retour">
+        <a href="../index.php" class="btn btn-light" role="button">Retour</a>
     </div>
 </div>
 </body>

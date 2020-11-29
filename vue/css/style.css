@@ -1,19 +1,16 @@
-.bloc{
-  position: relative;
-  width: 457px;
-  height: 600px;
-  left: 152px;
-  top: 152px;
-  background: #212121;
-  box-shadow: 26px 24px 7px rgba(0, 0, 0, 0.25);
-  border-radius: 15px;
-  min-width: 300px;
+.center{
+  margin: auto; 
+  max-width: 300px;
+}
+.test{
+  background-color: #212121;
+  border-radius: 10px;
+  box-shadow: 17px 19px 8px rgba(0, 0, 0, 0.25);
 }
 .titre{
   text-align: center;
   padding: 40px;
   text-transform: uppercase;
-
 }
 .soustitre{
   position: relative;
