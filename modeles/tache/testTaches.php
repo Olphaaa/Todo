@@ -15,7 +15,7 @@ $con=new Connection($dsn,$user,$pass);
 $gate=new TacheGateway($con);
 $a=$gate->getResult();
 foreach ($a as $val){
-    echo $val->getTitre()."<br/>";
+    echo $val->getTitre()." <br/>";
 }
 ?>
 
