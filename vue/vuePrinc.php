@@ -42,15 +42,15 @@
                                 <form method="post" name="myform" id="myform">
                                     <div class="form-group">
                                         <label for="inputNom">Nom de tache</label>
-                                        <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache">
+                                        <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom" required>
                                     </div>
                                     <div class="form-group">
                                         <label for="zoneText">Description</label>
-                                        <textarea class="form-control" id="zoneText"></textarea>
+                                        <textarea class="form-control" id="zoneText" name="txtDesc" rows="5"></textarea>
                                     </div>
                                     <div class="form-group">
-                                        <label for="inputDate">Date prévu</label>
-                                        <input type="date" class="form-control" id="inputDate"/>
+                                        <label for="inputDate">Date prévue</label>
+                                        <input type="date" class="form-control" id="inputDate" name="txtDate" required>
                                     </div>
                                     <button type="submit" class="btn btn-primary" name="action" value="validationFormulaire">Ajouter</button>
                                 </form>

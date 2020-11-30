@@ -63,22 +63,29 @@ class Controleur {
         require ($rep.$vues['vuePrinc']);
     }
 
-    function ValidationFormulaire(array $dVueEreur) {
+    function ValidationFormulaire(array $dVueEreur) { //dvueErreur est un tableau vide
         global $rep,$vues;
+
+        //Mettre la valeur ecrite par vueSimple dans une variable pour l'envoyer et
+        //et c'est la methode Valform de Validation.php qui verifie les champs avec filtervar et isset
 
 
         //si exception, ca remonte !!!
         $nom=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
-        $age=$_POST['txtAge'];
-        Validation::val_form($nom,$age,$dVueEreur);
+        $desc=$_POST['txtDesc']; // txtDesc = Description de la tache
+        $date=$_POST['txtDate']; // txtDate = Date de la tache
 
-        $model = new Simplemodel();
-        $data=$model->get_data();
+        Validation::val_form($nom,$desc,$date,$dVueEreur); //Envoi des valeurs a la methode val_form de Validation.php qui va controler les champs
+
+
+        //$model = new Simplemodel();
+        //$data=$model->get_data();
 
         $dVue = array (
             'nom' => $nom,
-            'age' => $age,
-            'data' => $data,
+            'desc' => $desc,
+            'date' => $date
+            //'data' => $data,
         );
         require ($rep.$vues['vuePrinc']);
     }

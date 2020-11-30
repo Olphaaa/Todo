@@ -81,3 +81,11 @@ body {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+input:invalid {
+  box-shadow: 0 0 2px 1px red;
+}
+
+input:valid {
+  border: 1px dashed green;
+}
