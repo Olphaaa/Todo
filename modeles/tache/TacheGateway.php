@@ -11,12 +11,12 @@ class TacheGateway extends Tache
 
 
     public function insertion(Tache $t){
-        $query = "insert into tache values ('".$this->idtache."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."')";
+        $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."')";
         $this->con->executeQuery($query);
     }
 
     public function getResult():array{
-        $query = "SELECT * FROM tache order by DatePrevu desc";
+        $query = "SELECT * FROM tache order by DatePrevu";
         $this->con->executeQuery($query);
 
         $result = $this->con->getResults();
@@ -29,4 +29,5 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
+
 }

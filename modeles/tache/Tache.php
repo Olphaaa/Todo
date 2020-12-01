@@ -7,7 +7,7 @@ class Tache
     private $datePrevu;
     private $dateInscrite;
 
-    public function __construct(string $titre, String $description, $datePrevu, $dateInscrite){
+    public function __construct(string $titre, String $description, string $datePrevu,string $dateInscrite){
         $this->titre=$titre;
         $this->description=$description;
         $this->datePrevu=$datePrevu;

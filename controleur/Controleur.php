@@ -15,6 +15,7 @@ class Controleur {
 
         try{
             $action=$_REQUEST['action'];//il faut valider
+            Validation::val_action($action);
             switch($action) {
                 //pas d'action, on r�initialise 1er appel
                 case NULL:
@@ -25,7 +26,7 @@ class Controleur {
                     break;
                 //mauvaise action
                 default://si action non prévu
-                    $dVueEreur[] =	"Erreur d'appel php";
+                    $dVueEreur[]="Erreur d'appel php";
                     require ($rep.$vues['vuePrinc']); //premet d'appeler la vue d'erreur si il y a une action non prévu
                     break;
             }
@@ -57,7 +58,9 @@ class Controleur {
         {
             $dTmp=array(
                 'Titre'=>$r->getTitre(),
-                'Description'=>$r->getDescription()
+                'Description'=>$r->getDescription(),
+                'DatePrevu'=>$r->getDatePrevu(),
+                'DateInscrite'=>$r->getDateInscrite(),
             );
             $dVue[]=$dTmp;
         }
@@ -68,21 +71,47 @@ class Controleur {
     function ValidationFormulaire(array $dVueEreur) {
         global $rep, $vues;
 
+        //Mettre la valeur ecrite par vueSimple dans une variable pour l'envoyer et
+        //et c'est la methode Valform de Validation.php qui verifie les champs avec filtervar et isset
+
 
         //si exception, ca remonte !!!
-        $nom = $_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
-        $age = $_POST['txtAge'];
-        Validation::val_form($nom, $age, $dVueEreur);
-
-        $model = new Simplemodel();
-        $data = $model->get_data();
-
-        $dVue = array( //TODO: adapter pour une tache
+        $titre=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
+        $desc=$_POST['txtDesc']; // txtDesc = Description de la tache
+        $dateP=$_POST['txtDateP']; // txtDate = Date de la tache
+        $ddJour =date('Y-m-d H:i:s'); //format pour pouvoir l'inserer correctement dans la bdd
+        Validation::val_form($titre,$desc,$dateP,$dVueEreur); //Envoi des valeurs a la methode val_form de Validation.php qui va controler les champs
+        $user="olblanc1";
+        $pass="mdp";
+        $dsn='mysql:host=localhost;dbname=dbolblanc1;';
+        $con = new Connection($dsn, $user,$pass);
+        $Tgate = new TacheGateway($con);
+        //$Tgate->ajouterTache($nom,$desc,$date);
+        //$this->Reinit();
+        //$model = new Simplemodel();
+        //$data=$model->get_data();
+        //todo voir s'il faut bien afficher la liste, ce n'est pas utile vu que l'on doit inserer les valeurs dans la BDD
+        /*$dVue = array (
             'Titre' => $nom,
-            'age' => $age,
-            'data' => $data,
-        );
-        require($rep . $vues['vuePrinc']);
+            'Description' => $desc,
+            'DatePrevu' => $date
+            //'data' => $data,
+        );*/
+;
+        $gateway = new TacheGateway(new connection("mysql:host=localhost;dbname=dbolblanc1;","olblanc1", "mdp"));
+        $gateway->insertion(new Tache($titre,$desc,$dateP,$ddJour));
+        $res=$gateway->getResult();
+        foreach ($res as $r)
+        {
+            $dTmp=array(
+                'Titre'=>$r->getTitre(),
+                'Description'=>$r->getDescription(),
+                'DatePrevu'=>$r->getDatePrevu(),
+                'DateInscrite'=>$r->getDateInscrite(),
+            );
+            $dVue[]=$dTmp;
+        }
+        require ($rep.$vues['vuePrinc']);
     }
 
 }//fin class

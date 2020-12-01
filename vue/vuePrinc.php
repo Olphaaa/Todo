@@ -93,13 +93,17 @@
                                 <h1>Taches:</h1>
                             </div>
                             <!-- Mettre ici la liste des taches du l'utilisateur donné-->
-                            <?php
-                            if (isset($dVue))
-                                foreach ($dVue as $r){
-                                    echo "<li>".$r['Titre'].": ".$r['Description']."</li>";
-                                    echo "<br/>";
-                                }
-                            ?>
+                            <ol>
+                                <?php
+                                if (isset($dVue))
+                                    foreach ($dVue as $r){
+                                        echo "<li>".$r['Titre'].": ".$r['Description']." pour le ".$r['DatePrevu']."( fait le :". $r['DateInscrite']. ")</li>";
+                                        //echo $r['Titre'];
+                                        echo "<br/>";
+                                    }
+                                //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
+                                ?>
+                            </ol>
                         </div>
                     </div>
                 </div>
@@ -111,20 +115,22 @@
                                 <h1>Ajouter:</h1>
                             </div>
                             <div class="row  mx-auto">
-                                <form method="post" name="myform" id="myform">
+                                <form method="post" name="myform" id="myform" style="width: 600px">
                                     <div class="form-group">
                                         <label for="inputNom">Nom de tache</label>
-                                        <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache">
+                                        <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom">
                                     </div>
                                     <div class="form-group">
                                         <label for="zoneText">Description</label>
-                                        <textarea class="form-control" id="zoneText"></textarea>
+                                        <textarea class="form-control" id="zoneText" name="txtDesc"></textarea>
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDate">Date prévu</label>
-                                        <input type="date" class="form-control" id="inputDate"/>
+                                        <input type="date" class="form-control" id="inputDate" name="txtDateP"/>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" name="action" value="validationFormulaire">Ajouter</button>
+                                    <button type="submit" class="btn btn-primary" name="action"
+                                            value="validationFormulaire">Ajouter
+                                    </button>
                                 </form>
                             </div>
                         </div>

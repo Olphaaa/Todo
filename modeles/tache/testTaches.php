@@ -13,6 +13,12 @@ $pass="mdp";
 $dsn='mysql:host=localhost;dbname=dbolblanc1;';
 $con=new Connection($dsn,$user,$pass);
 $gate=new TacheGateway($con);
+$titre = "coucou";
+$desc ="coucou";
+$dateP = strtotime("02/12/2020");
+$ddJour=date("d/m/Y");
+//$this->con->executeQuery("INSERT INTO tache values('".$titre."'.,.'".$desc."'.,.'".$dateP ."', '".$ddJour."')");
+$gate->insertion(new Tache($titre,$desc,$dateP,$ddJour));
 $a=$gate->getResult();
 foreach ($a as $val){
     echo $val->getTitre()." <br/>";
