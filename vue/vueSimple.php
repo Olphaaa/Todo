@@ -27,10 +27,7 @@
                 if (isset($dVue))
                 foreach ($dVue as $r){
                     echo "<li>Pour le ".$r['DatePrevu'].": ".$r['Titre'].": ".$r['Description']."( fait le :". $r['DateInscrite']. ")</li>";
-                    //echo $r['Titre'];
-                    echo "<br/>";
                 }
-                //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
             ?>
         </ul>
     </div>

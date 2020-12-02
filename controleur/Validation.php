@@ -7,16 +7,12 @@ class Validation
 
         if (!isset($action)) {
             throw new Exception('pas d\'action');
-            //on pourrait aussi utiliser
-//$action = $_GET['action'] ?? 'no';
-            // This is equivalent to:
-            //$action =  if (isset($_GET['action'])) $action=$_GET['action']  else $action='no';
+
         }
     }
     //Methode qui verifie le nom
     static function val_form(string &$nom, string &$desc, string &$date, array &$dVueEreur)
     {
-
         if ($nom != filter_var($nom, FILTER_SANITIZE_STRING)) {
             $dVueEreur[] = "Le nom de la tache est pas une chaine de caracteres";
             $nom = "";

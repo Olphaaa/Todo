@@ -14,6 +14,8 @@ $rep=__DIR__.'/../'; //permet de partir de la racine du projet __DIR__='G:\wamp6
 $base="dbolblanc1 ";
 $login="olblanc1";
 $mdp="mdp";
+// todo faire connexion
+
 
 //Vues
 

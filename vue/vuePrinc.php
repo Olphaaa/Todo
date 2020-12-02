@@ -99,7 +99,6 @@
                                     foreach ($dVue as $r){
                                         echo "<li><p>".$r['Titre'].": ".$r['Description']." pour le ".$r['DatePrevu']."( fait le :". $r['DateInscrite']. ")</p></li>";
                                         //echo $r['Titre'];
-                                        echo "<br/>";
                                     }
                                 //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
                                 ?>

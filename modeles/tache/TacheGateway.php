@@ -8,7 +8,7 @@ class TacheGateway extends Tache
     public function __construct(Connection $con){
         $this->con=$con;
     }
-
+    //todo voir si connection direct dans le constructeur
 
     public function insertion(Tache $t){
         $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."')";
@@ -25,7 +25,6 @@ class TacheGateway extends Tache
         foreach ($result as $r){
             $t = new Tache($r['Titre'],$r['Description'],$r['DatePrevu'],$r['DateInscrite']);
             array_push($tTaches, $t);
-            // Autre solution : $artistes[] = $a; Dans ce cas, la déclaration préalable de $artistes n'est plus nécessaire
         }
         return $tTaches;
     }
