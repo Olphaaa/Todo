@@ -15,7 +15,7 @@
             }
 
             body {
-                background-color: #111111;
+                /*background-color: #111111;*/
                 background-image: url("images/background1.jpeg");
                 background-repeat: no-repeat;
                 background-position: center;
@@ -93,11 +93,11 @@
                                 <h1>Taches:</h1>
                             </div>
                             <!-- Mettre ici la liste des taches du l'utilisateur donné-->
-                            <ol>
+                            <ol style="width: auto;">
                                 <?php
                                 if (isset($dVue))
                                     foreach ($dVue as $r){
-                                        echo "<li>".$r['Titre'].": ".$r['Description']." pour le ".$r['DatePrevu']."( fait le :". $r['DateInscrite']. ")</li>";
+                                        echo "<li><p>".$r['Titre'].": ".$r['Description']." pour le ".$r['DatePrevu']."( fait le :". $r['DateInscrite']. ")</p></li>";
                                         //echo $r['Titre'];
                                         echo "<br/>";
                                     }
@@ -115,7 +115,7 @@
                                 <h1>Ajouter:</h1>
                             </div>
                             <div class="row  mx-auto">
-                                <form method="post" name="myform" id="myform" style="width: 600px">
+                                <form method="post" name="myform" id="myform" style="width: auto">
                                     <div class="form-group">
                                         <label for="inputNom">Nom de tache</label>
                                         <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom">

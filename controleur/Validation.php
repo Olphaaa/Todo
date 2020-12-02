@@ -40,6 +40,10 @@ class Validation
             $dvueEreur[] = "Renseignez une chaine de caracteres et pas un nombre";
             $nom = "";
         }
-        //var_dump($dVueEreur);
+        if ($date < date("Y-m-d"))
+        {
+            $dVueEreur[] = "Erreur date inférieur";
+            $nom = "";
+        }
     }
 }

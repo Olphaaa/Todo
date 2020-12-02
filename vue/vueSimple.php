@@ -26,7 +26,7 @@
             <?php
                 if (isset($dVue))
                 foreach ($dVue as $r){
-                    echo "<li>".$r['Titre'].": ".$r['Description']." pour le ".$r['DatePrevu']."( fait le :". $r['DateInscrite']. ")</li>";
+                    echo "<li>Pour le ".$r['DatePrevu'].": ".$r['Titre'].": ".$r['Description']."( fait le :". $r['DateInscrite']. ")</li>";
                     //echo $r['Titre'];
                     echo "<br/>";
                 }

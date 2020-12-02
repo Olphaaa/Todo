@@ -15,7 +15,7 @@ class Controleur {
 
         try{
             $action=$_REQUEST['action'];//il faut valider
-            Validation::val_action($action);
+            //Validation::val_action($action);
             switch($action) {
                 //pas d'action, on r�initialise 1er appel
                 case NULL:
@@ -81,6 +81,7 @@ class Controleur {
         $dateP=$_POST['txtDateP']; // txtDate = Date de la tache
         $ddJour =date('Y-m-d H:i:s'); //format pour pouvoir l'inserer correctement dans la bdd
         Validation::val_form($titre,$desc,$dateP,$dVueEreur); //Envoi des valeurs a la methode val_form de Validation.php qui va controler les champs
+
         $user="olblanc1";
         $pass="mdp";
         $dsn='mysql:host=localhost;dbname=dbolblanc1;';
@@ -99,7 +100,9 @@ class Controleur {
         );*/
 ;
         $gateway = new TacheGateway(new connection("mysql:host=localhost;dbname=dbolblanc1;","olblanc1", "mdp"));
-        $gateway->insertion(new Tache($titre,$desc,$dateP,$ddJour));
+        if (empty($dVueEreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
+            $gateway->insertion(new Tache($titre,$desc,$dateP,$ddJour));
+        }
         $res=$gateway->getResult();
         foreach ($res as $r)
         {

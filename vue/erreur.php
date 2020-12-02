@@ -25,7 +25,7 @@
             left: 25px;
         }
         body {
-            background-image: url("../images/background1.jpeg");
+            background-image: url("/images/background1.jpeg");
             background-repeat: no-repeat;
             background-position: center;
             position: relative;

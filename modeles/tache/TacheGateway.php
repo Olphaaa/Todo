@@ -16,7 +16,7 @@ class TacheGateway extends Tache
     }
 
     public function getResult():array{
-        $query = "SELECT * FROM tache order by DatePrevu";
+        $query = "select * from tache order by DatePrevu";
         $this->con->executeQuery($query);
 
         $result = $this->con->getResults();
