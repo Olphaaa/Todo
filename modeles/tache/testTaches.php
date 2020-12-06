@@ -4,7 +4,7 @@
 <p>test pour les taches</p>
 
 <?php
-
+/*
 require("../connection/Connection.php");
 require("TacheGateway.php");
 //$t = new Tache("Dire bonour a la dame", "ne pas oublier de se moucher le nez",);
@@ -22,7 +22,7 @@ $gate->insertion(new Tache($titre,$desc,$dateP,$ddJour));
 $a=$gate->getResult();
 foreach ($a as $val){
     echo $val->getTitre()." <br/>";
-}
+}*/
 ?>
 
 </body>
