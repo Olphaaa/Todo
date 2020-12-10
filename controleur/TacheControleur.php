@@ -1,6 +1,6 @@
 <?php
 
-class Controleur {
+class TacheControleur {
 
     function __construct() {
         global $rep,$vues; // nécessaire pour utiliser variables globales
@@ -33,7 +33,7 @@ class Controleur {
         } catch (PDOException $e)
         {
             //si erreur BD, pas le cas ici
-            $dVueEreur[] =	"Erreur PDO!!! ";
+            $dVueEreur[] =	"Erreur PDO!!!:". $e->getMessage() ;
             require ($rep.$vues['erreur']);
 
         }
@@ -71,8 +71,6 @@ class Controleur {
     function ValidationFormulaire(array $dVueEreur) {
         global $rep, $vues, $con;
 
-
-
         //si exception, ca remonte !!!
         $titre=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
         $desc=$_POST['txtDesc']; // txtDesc = Description de la tache
@@ -80,12 +78,11 @@ class Controleur {
         $ddJour =date('Y-m-d H:i:s'); //format pour pouvoir l'inserer correctement dans la bdd
         Validation::val_form($titre,$desc,$dateP,$dVueEreur); //Envoi des valeurs a la methode val_form de Validation.php qui va controler les champs
         //todo voir co dans gateway
-
-
-
-
-
-        $Tgate = new TacheGateway($con);
+        $base="dbolblanc1";
+        $login="olblanc1";
+        $mdp="mdp";
+        $dsn='mysql:host=localhost;dbname='.$base.';';
+        $Tgate = new TacheGateway(new Connection($dsn,$login,$mdp));
         //todo voir s'il faut bien afficher la liste, ce n'est pas utile vu que l'on doit inserer les valeurs dans la BDD
         if (empty($dVueEreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
             $Tgate->insertion(new Tache($titre,$desc,$dateP,$ddJour));

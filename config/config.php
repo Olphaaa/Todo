@@ -24,6 +24,7 @@ $con = new Connection($dsn, $login,$mdp);
 $vues['erreur']='vue/erreur.php';
 $vues['vuePrinc']='vue/vueSimple.php';
 
+
 //$vues['erreur']=array('url'=>'erreur.php');
 //$vues['vuephp1']=array('url'=>'vuephp1.php');
 

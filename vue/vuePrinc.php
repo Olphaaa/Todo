@@ -3,76 +3,11 @@
 <!--Etat de maquette pour le moment-->
     <head>
         <title>todo</title>
-        <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css" type="text/css"> <!--todo  le lien de foncitonne pas-->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="UTF-8"/>
-        <style>
-
-            .test{
-                background-color: #212121;
-                border-radius: 10px;
-                box-shadow: 17px 19px 8px rgba(0, 0, 0, 0.25);
-            }
-
-            body {
-                /*background-color: #111111;*/
-                background-image: url("images/background1.jpeg");
-                background-repeat: no-repeat;
-                background-position: center;
-                position: relative;
-                background-size: cover;
-                background-attachment: fixed;
-                height: 100%;
-
-            }
-
-            .etatConnection{
-                color: greenyellow;
-                /*color:red;*/
-            }
 
 
-
-            body {
-                font-family: "Lato", sans-serif;
-            }
-
-            .sidenav {
-                height: 100%;
-                width: 250px;
-                position: fixed;
-                z-index: 1;
-                top: 0;
-                left: 0;
-                background-color: #111;
-                overflow-x: hidden;
-                padding-top: 20px;
-            }
-
-            .sidenav a {
-                padding: 6px 8px 6px 16px;
-                text-decoration: none;
-                font-size: 25px;
-                color: #818181;
-                display: block;
-            }
-            .sidenav a:hover {
-                color: #f1f1f1;
-            }
-
-            .main {
-                margin-left: 0px; /* Same as the width of the sidenav */
-                font-size: 28px; /* Increased text to enable scrolling */
-                padding: 0px 10px;
-                background-color: red;
-            }
-
-            @media screen and (max-height: 450px) {
-                .sidenav {padding-top: 15px;}
-                .sidenav a {font-size: 18px;}
-            }
-
-        </style>
     </head>
 
     <body style="font-family: Calibri" class="text-light">

@@ -10,12 +10,15 @@ class UtilisateurGateway extends Utilisateur
     }
 
     public function insertion(Utilisateur $u){
-        $query = "insert into utilisateur values ('".NULL."','".$u->getPrenom()."','".$u->getNom()."','".$u->getPasswd()."')";
-        $this->con->executeQuery($query);
+        if (!$this->isExiste($u->getUsername(), $u->getPasswd()))
+        {
+            $query = "insert into utilisateur values ('".$u->getUsername()."','".$u->getPasswd()."')";
+            $this->con->executeQuery($query);
+        }
     }
 
-    public function isExiste(string $prenom, string $mdp){
-        $query = "select * from utilisateur where Prenom='$prenom' and Passwd='$mdp'";
+    public function isExiste(string $username, string $mdp){
+        $query = "select * from utilisateur where Username='$username' and passwd='$mdp'";
         $this->con->executeQuery($query);
         if ($this->con->getResults() == null)
             return false;
@@ -31,7 +34,7 @@ class UtilisateurGateway extends Utilisateur
 
         $tUser= array();
         foreach ($result as $r){
-            $t = new Utilisateur($r['Nom'],$r['Prenom'],$r['Passwd']);
+            $t = new Utilisateur($r['Username'],$r['passwd']);
             array_push($tUser, $t);
         }
         return $tUser;

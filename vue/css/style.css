@@ -17,7 +17,7 @@
   left: 25px;
 }
 body {
-    background-image: url("/image/background.jpeg");
+    background-image: url("/vue/images/background1.jpeg");
     background-repeat: no-repeat;
     background-position: center;
     position: relative;

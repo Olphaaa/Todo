@@ -92,7 +92,7 @@
 
     </style>
 </head>
-<body style="font-family: Calibri" class="text-light">
+<body style="font-family: Calibri" class="text-dark">
 <div class="sidenav">
     <h1 style="text-align: center;">Olpha<span style="font-size: 100px; position:absolute;top: -25px;" class="etatConnection">.</span></h1><br /><br />
 
@@ -124,9 +124,9 @@
         ?>
         <!--?= $dVue['data']?NON FONCTIONNEL mais sert a afficher dvue si il n'est pas vide-->
     </div>
-    <div style=" position: absolute; bottom: 25px;" class="row">
-        <a href="index.php" class="btn btn-light" role="button">Retour</a>
-    </div>
+</div>
+<div style=" position: absolute; bottom: 25px;" class="row">
+    <a href="index.php" class="btn btn-light" role="button">Retour</a>
 </div>
 </body>
 </html>

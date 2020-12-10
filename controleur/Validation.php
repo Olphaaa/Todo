@@ -39,7 +39,6 @@ class Validation
         if ($date < date("Y-m-d"))
         {
             $dVueEreur[] = "Erreur date inférieur";
-            $nom = "";
         }
     }
 }

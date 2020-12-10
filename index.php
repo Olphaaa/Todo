@@ -7,4 +7,4 @@ Autoload::charger(); //sert a chager tout ce qu'il y a dans les repertoirs contr
 //chargement de la configuration
 require_once('config/config.php');
 
-$con = new Controleur();
+$cont = new TacheControleur();
