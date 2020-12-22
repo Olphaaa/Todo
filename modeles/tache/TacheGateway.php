@@ -11,7 +11,8 @@ class TacheGateway extends Tache
     //todo voir si connection direct dans le constructeur
 
     public function insertion(Tache $t){
-        $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."','"."Paulor"."')"; //todo attention a NULL du username
+        $fait = 0;
+        $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."','".$fait."','"."Paulor"."')"; //todo attention a NULL du username
         $this->con->executeQuery($query);
     }
 

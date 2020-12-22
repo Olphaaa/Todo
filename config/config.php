@@ -15,14 +15,14 @@ $base="dbolblanc1";
 $login="olblanc1";
 $mdp="mdp";
 $dsn='mysql:host=localhost;dbname='.$base.';';
-
 $con = new Connection($dsn, $login,$mdp);
 
 
 //Vues
 
 $vues['erreur']='vue/erreur.php';
-$vues['vuePrinc']='vue/vueSimple.php';
+$vues['vuePrinc']='vue/vuePrinc.php';
+$vues['vueLogin']='vue/vueLogIn.php';
 
 
 //$vues['erreur']=array('url'=>'erreur.php');

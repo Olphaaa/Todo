@@ -83,6 +83,7 @@ class TacheControleur {
         $mdp="mdp";
         $dsn='mysql:host=localhost;dbname='.$base.';';
         $Tgate = new TacheGateway(new Connection($dsn,$login,$mdp));
+
         //todo voir s'il faut bien afficher la liste, ce n'est pas utile vu que l'on doit inserer les valeurs dans la BDD
         if (empty($dVueEreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
             $Tgate->insertion(new Tache($titre,$desc,$dateP,$ddJour));

@@ -2,7 +2,7 @@
 <!--Etat de maquette pour le moment-->
 <head>
     <title>ERREUR - Todo</title>
-    <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet"href="vue/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta charset="UTF-8"/>
     <style>
@@ -24,8 +24,10 @@
             position: relative;
             left: 25px;
         }
-        body {
-            background-image: url("/images/background1.jpeg");
+        .body {
+            color: white;
+            /*background-color: #000000;*/
+            background-image: url('/vue/images/background1.jpeg');
             background-repeat: no-repeat;
             background-position: center;
             position: relative;
@@ -34,9 +36,17 @@
             height: 100%;
 
         }
+        .liste{
+            width: 100%;
+            height: 100%;
+            text-align: justify;
+            overflow: auto;
+            top: 50px;
+            position: center;
+        }
 
         .etatConnection{
-            color: greenyellow;
+            color:yellowgreen;
             /*color:red;*/
         }
 
@@ -89,10 +99,9 @@
             .sidenav {padding-top: 15px;}
             .sidenav a {font-size: 18px;}
         }
-
     </style>
 </head>
-<body style="font-family: Calibri" class="text-dark">
+<body  class="text-dark body">
 <div class="sidenav">
     <h1 style="text-align: center;">Olpha<span style="font-size: 100px; position:absolute;top: -25px;" class="etatConnection">.</span></h1><br /><br />
 
@@ -106,6 +115,8 @@
         <div class="col-sm-12">
             <h1 class="titre">Erreur !</h1>
         </div>
+
+
     </div>
     <div class="row">
         <?php
