@@ -8,31 +8,44 @@
     <meta charset="UTF-8"/>
 </head>
 
-<body style="background-color: #212121; " class="text-light">
+<body >
 
     <div>
         <div>
-            <h1>Taches:</h1>
+            <h1>Liste des taches:</h1>
         </div>
-        <!-- Mettre ici la liste des taches du l'utilisateur donné-->
+        <!-- todo Mettre ici la liste des taches du l'utilisateur donné -->
         <?php
-            
+        if (isset($dVueEreur) && count($dVueEreur)>0) {
+            echo "<h2>ERREUR !!!!!</h2>";
+            foreach ($dVueEreur as $value){
+                echo $value."<br/>";
+            }}
         ?>
+        <ul>
+            <?php
+                if (isset($dVue))
+                foreach ($dVue as $r){
+                    echo "<li>Pour le ".$r['DatePrevu'].": ".$r['Titre'].": ".$r['Description']."( fait le :". $r['DateInscrite']. ")</li>";
+                }
+            ?>
+        </ul>
     </div>
-
-
-    <form method="post" name="myform" id="myform" style="width: 600px">
+    <div>
+        <h1>Ajouter une tache </h1>
+    </div>
+    <form method="post" name="myform" id="myform" style="width: 100%;">
         <div class="form-group">
             <label for="inputNom">Nom de tache</label>
-            <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom" required>
+            <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom">
         </div>
         <div class="form-group">
             <label for="zoneText">Description</label>
             <textarea class="form-control" id="zoneText" name="txtDesc"></textarea>
         </div>
         <div class="form-group">
-            <label for="inputDate">Date prévue</label>
-            <input type="date" class="form-control" id="inputDate" name="txtDate" required>
+            <label for="inputDate">Date prévu</label>
+            <input type="date" class="form-control" id="inputDate" name="txtDateP"/>
         </div>
         <button type="submit" class="btn btn-primary" name="action"
                 value="validationFormulaire">Ajouter
