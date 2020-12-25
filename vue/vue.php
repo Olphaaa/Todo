@@ -1,37 +1,9 @@
-<<<<<<< HEAD
-<!DOCTYPE html>
-<html>
-    <!--Etat de maquette pour le moment-->
-    <head>
-        <title>todo</title>
-        <link rel="stylesheet" href="css/style.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <meta charset="UTF-8"/>
-    </head>
-    <body style="font-family: Calibri" class="text-light">
-        <div class="sidenav">
-            <h1>Olpha</h1>
-            <a href="#about">Toutes les taches</a>
-            <a href="#services">Aujourd'hui</a>
-            <a href="#clients">Cette semaine</a>
-        </div>
-
-        <div class="main">
-            <div class="container col-5 bloc">
-                <h2>Aujourd'hui:</h2>
-                <h2>Demain:</h2>
-                <h2>Bientôt:</h2>
-                <h2>Un jour:</h2>
-            </div>
-        </div>
-    </body>
-=======
 <!DOCTYPE html>
 <html>
 <!--Etat de maquette pour le moment-->
     <head>
         <title>todo</title>
-        <link rel="stylesheet" href="css/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="UTF-8"/>
     </head>
@@ -40,7 +12,7 @@
             <h1 style="text-align: center;">Olpha<span style="font-size: 100px; position:absolute;top: -25px;" class="etatConnection">.</span></h1><br /><br />
             
             <a href="#about">Toutes les taches</a>
-            <a href="#services">Ajourd'hui</a>
+            <a href="#services">Aujourd'hui</a>
             <a href="#clients">Cette semaine</a>
         </div>
 
@@ -82,5 +54,4 @@
             </div>
         </div>
     </body>
->>>>>>> a1bd6608599273c6d923d0658d16b3c99194a59e
 </html>
