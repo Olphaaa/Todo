@@ -22,3 +22,4 @@ if ($UGateway->isExiste("Pauhlor","mdp")){
 }else{
     echo "il n'exsite pas";
 }
+?>

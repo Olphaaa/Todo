@@ -1,27 +1,30 @@
 <?php
-
-
-class VisiteurControleur{
-    function __construct(){
-        global $rep,$vues,$action;
+class UserController {
+    function __construct() {
+        global $rep, $vues, $action;
         $dVueErreur = array();
 
-        try{
-            switch($action){
+        try {
+            switch($action) {
                 case NULL:
-                    echo "Pas d'action visiteur";
+                    echo "Pas d'action Utilisateur";
                     break;
                 default:
-                    echo "Action visiteur recue : $action";
+                    echo "Action utilisateur reçue : $action";
                     break;
             }
-        } catch(PDOException $e) {
+        }
+
+        catch(PDOException $e) {
             $dVueErreur[] =	"Erreur base de données !";
             require ($rep.$vues['erreur']);
-        } catch(Exception $e) {
+        }
+
+        catch(Exception $e) {
             $dVueErreur[] =	"Erreur générale !";
             require ($rep.$vues['erreur']);
         }
     }
 }
 ?>
+

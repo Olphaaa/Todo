@@ -1,15 +1,35 @@
 <?php
 require_once ("Utilisateur.php");
 
-class UtilisateurGateway extends Utilisateur
-{
+class UtilisateurGateway /*extends Utilisateur*/{
     private $con;
+    private $query;
+    private $results;
 
     public function __construct(Connection $con){
         $this->con=$con;
     }
 
-    public function insertion(Utilisateur $u){
+    public function getLogin($login){
+        $query="SELECT login from username WHERE login:=login";
+        $this->con->executeQuery($query, array(':login' => array($login, PDO::PARAM_STR)));
+        $results=$this->con->getResults();
+        return $results;
+    }
+
+    public function getPassword($login) {
+        $query="SELECT password FROM users WHERE login=:login";
+        $this->con->executeQuery($query,array(
+            ':login' => array($login, PDO::PARAM_STR)
+        ));
+
+        $results=$this->con->getResults();
+        return $results;
+    }
+
+
+    /*
+    public function insertion(Tache $t){
         if (!$this->isExiste($u->getUsername(), $u->getPasswd()))
         {
             $query = "insert into utilisateur values ('".$u->getUsername()."','".$u->getPasswd()."')";
@@ -38,6 +58,5 @@ class UtilisateurGateway extends Utilisateur
             array_push($tUser, $t);
         }
         return $tUser;
-    }
-
+    }*/
 }

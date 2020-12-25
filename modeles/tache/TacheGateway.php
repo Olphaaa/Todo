@@ -29,5 +29,4 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
-
 }
