@@ -7,7 +7,10 @@ class Validation
 
         if (!isset($action)) {
             throw new Exception('pas d\'action');
-
+            //On peut aussi utiliser
+            //$action = $_GET['action') ?? 'no';
+            //This is equivalent to:
+            //$action = if(isset($_GET['action'])) $action=$_GET['action'] else $action='no';
         }
     }
     //Methode qui verifie le nom
