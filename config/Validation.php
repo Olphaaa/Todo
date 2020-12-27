@@ -44,4 +44,15 @@ class Validation
             $dVueEreur[] = "Erreur date inférieur";
         }
     }
+
+    static function val_login(string &$login,array &$dvueErreur){
+        if(!isset($login) || $login == "" ){
+            $dvueErreur[] = "Login non renseigné";
+        }
+
+        if($login != filter_var($login,FILTER_SANITIZE_STRING)){
+            $dvueErreur[] = "Login n"."'est pas une chaine de caractères";
+        }
+
+    }
 }
