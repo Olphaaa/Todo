@@ -7,31 +7,41 @@ class Validation
 
         if (!isset($action)) {
             throw new Exception('pas d\'action');
-            //on pourrait aussi utiliser
-            //$action = $_GET['action'] ?? 'no';
-            // This is equivalent to:
-            //$action =  if (isset($_GET['action'])) $action=$_GET['action']  else $action='no';
+            //On peut aussi utiliser
+            //$action = $_GET['action') ?? 'no';
+            //This is equivalent to:
+            //$action = if(isset($_GET['action'])) $action=$_GET['action'] else $action='no';
         }
     }
-
-    static function val_form(string &$nom, string &$age, array &$dVueEreur)
+    //Methode qui verifie le nom
+    static function val_form(string &$nom, string &$desc, string &$date, array &$dVueEreur)
     {
+        if ($nom != filter_var($nom, FILTER_SANITIZE_STRING)) {
+            $dVueEreur[] = "Le nom de la tache est pas une chaine de caracteres";
+            $nom = "";
+        }
+
+        if ($desc != filter_var($desc, FILTER_SANITIZE_STRING)) {
+            $dVueEreur[] = "La description est pas une chaine de caracteres";
+            $desc = "";
+        }
 
         if (!isset($nom) || $nom == "") {
-            $dVueEreur[] = "pas de nom";
+            $dVueEreur[] = "Nom de la tache non renseigné";
             $nom = "";
         }
 
-        if ($nom != filter_var($nom, FILTER_SANITIZE_STRING)) {
-            $dVueEreur[] = "testative d'injection de code (attaque sécurité)";
+        if (!isset($date) || $date == "") {
+            $dVueEreur[] = "Date pas renseignée";
+            $date = "";
+        }
+        if ($nom == filter_var($nom, FILTER_SANITIZE_NUMBER_INT)) {
+            $dvueEreur[] = "Renseignez une chaine de caracteres et pas un nombre";
             $nom = "";
         }
-
-        if (!isset($age) || $age == "" || !filter_var($age, FILTER_VALIDATE_INT)) {
-            $dVueEreur[] = "pas d'age ";
-            $age = 0;
+        if ($date < date("Y-m-d"))
+        {
+            $dVueEreur[] = "Erreur date inférieur";
         }
-
     }
 }
-?>

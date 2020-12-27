@@ -11,14 +11,14 @@ class UtilisateurGateway /*extends Utilisateur*/{
     }
 
     public function getLogin($login){
-        $query="SELECT login from username WHERE login:=login";
+        $query="SELECT Username from utilisateur WHERE Username = '$login'";
         $this->con->executeQuery($query, array(':login' => array($login, PDO::PARAM_STR)));
         $results=$this->con->getResults();
         return $results;
     }
 
     public function getPassword($login) {
-        $query="SELECT password FROM users WHERE login=:login";
+        $query="SELECT passwd FROM utilisateur WHERE Username = '$login'";
         $this->con->executeQuery($query,array(
             ':login' => array($login, PDO::PARAM_STR)
         ));

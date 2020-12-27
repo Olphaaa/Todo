@@ -7,7 +7,7 @@ class Tache
     private $datePrevu;
     private $dateInscrite;
 
-    public function __construct(string $titre, String $description, string $datePrevu,string $dateInscrite){
+    public function __construct( $titre, $description,$datePrevu, $dateInscrite){
         $this->titre=$titre;
         $this->description=$description;
         $this->datePrevu=$datePrevu;
@@ -18,7 +18,7 @@ class Tache
     /**
      * @return String
      */
-    public function getTitre(): string
+    public function getTitre()
     {
         return $this->titre;
     }
@@ -34,7 +34,7 @@ class Tache
     /**
      * @return String
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }

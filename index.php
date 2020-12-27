@@ -8,5 +8,5 @@ Autoload::charger(); //sert a chager tout ce qu'il y a dans les repertoirs contr
 require_once('config/config.php');
 
 
-$cont = new TacheControleur();
-//$frontCont =  new FrontControleur();
+//$cont = new TacheControleur();
+$frontCont = new FrontControleur();

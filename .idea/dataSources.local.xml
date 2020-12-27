@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal">
-    <data-source name="dbolblanc1@localhost" uuid="aa319846-bbeb-41c4-a3ac-d1d27c34bb8e">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>olblanc1</user-name>
-      <schema-mapping />
-    </data-source>
-    <data-source name="dbolblanc1@localhost [2]" uuid="efcf1797-7646-4637-a9e4-821aa522a654">
+    <data-source name="dbolblanc1@localhost" uuid="856552fe-9605-4ac6-a116-e8c2311bfb87">
       <database-info product="MySQL" version="8.0.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.21 (Revision: 33f65445a1bcc544eb0120491926484da168f199)" dbms="MYSQL" exact-version="8.0.21" exact-driver-version="8.0">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
@@ -17,7 +11,7 @@
       <user-name>olblanc1</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" qname="@" />
+          <node kind="schema" qname="dbolblanc1" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

@@ -120,7 +120,7 @@
     </div>
     <div class="row">
         <?php
-        if (isset($dVueEreur) && count($dVueEreur)>0){
+        if (isset($dVueEreur)){
             foreach ($dVueEreur as $val)
             {
                 echo $val;

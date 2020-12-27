@@ -10,9 +10,24 @@
 
     <body  class="body">
         <div class="sidenav">
-            <h1 style="text-align: center;">Olpha<span style="font-size: 100px; position:absolute;top: -25px;" class="etatConnection">.</span></h1><br /><br />
-            <form method="get" action="vue/vueLogIn.php" style="text-align: center;">
-                <button type="submit" class="btn btn-light">Se connecter</button>
+            <?php
+            if ($_SESSION['pseudo'] != null){
+                $username = $_SESSION['pseudo'];
+                $etat="green";
+            }
+            else {
+                $username = "Visiteur";
+                $etat="red";
+            }
+            echo "<h1 style=\"text-align: center;\">". $username. "<span style=\"font-size: 100px; position:absolute;top: -25px;\" class=\"$etat\">.</span></h1><br /><br />";
+            //echo $u->getUsername();
+            ?>
+            <form method="post" style="text-align: center;">
+                <button type="submit" class="btn btn-light" name="action" value="connecter">Se connecter</button>
+            </form>
+            <br/>
+            <form method="post" style="text-align: center;">
+                <button type="submit" class="btn btn-light" name="action" value="deconnexion">Se deconnecter</button>
             </form>
             <a href="#about">Toutes les taches</a>
             <a href="#services">Aujourd'hui</a>
@@ -26,21 +41,24 @@
                         <h1 class="titre">Taches:</h1>
                         <div>
                             <div class="liste scrollbar-primary" style="height: 700px">
-                                <ol>
-                                    <?php
-                                    if (isset($dVue))
-                                        foreach ($dVue as $r){
-                                            echo
-                                                "<li>
-                                                    <p>".$r['Titre'].":  pour le ".$r['DatePrevu']."</p>
-                                                    <p style='left: 10px;'>".$r['Description']."</p>
-                                                </li>";
-                                        }
-                                    else
-                                        echo "<p style='text-align: center'> Rien de prévu </p>"
-                                    //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
-                                    ?>
-                                </ol>
+                                <?php
+                                if (isset($dVue))
+                                    foreach ($dVue as $r){
+                                        echo
+                                            "<div class='glow-on-hover' style='padding-left: 10px; padding-right: 10px;'>
+                                                <p style='overflow-wrap: anywhere;'>
+                                                    <form>
+                                                        <input type='checkbox' class='checkbox' value='fait'> ".$r['Titre'].":  pour le ".$r['DatePrevu']." 
+                                                    </form>
+                                                </p>
+                                                <p style='left: 10px;'>".$r['Description']."</p>
+                                            </div>";
+                                    }
+                                else
+                                    echo "<p style='text-align: center'> Rien de prévu </p>"
+                                //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
+
+                                ?>
                             </div>
                         </div>
                         <!-- Mettre ici la liste des taches du l'utilisateur donné-->
@@ -50,7 +68,7 @@
                 <div class="col-1"></div>
                 <div class="col-md-5">
                     <div class="container test " style="padding-bottom: 50px;">
-                        <div style="height: 100%; white-space: nowrap; padding: 10px; " class="row">
+                        <div style="white-space: nowrap; padding: 10px; " class="row">
                             <h1 class="titre" style="text-align: center;width: 100%">Ajouter:</h1>
                             <div class="row mx-auto">
                                 <form method="post" name="myform" id="myform">
@@ -72,6 +90,16 @@
                                 </form>
                             </div>
                         </div>
+                        <?php
+                        if (!empty($dVueErreur))
+                        {
+                            echo "<ul  style='margin: 0 auto;'>";
+                            foreach ($dVueErreur as $erreur) {
+                                echo "<li>$erreur</li>";
+                            }
+                            echo "</ul>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="col"></div>

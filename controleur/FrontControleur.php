@@ -1,8 +1,5 @@
 <?php
-
-
-class FrontControleur
-{
+class FrontControleur{
     function __construct(){
         global $rep,$vues,$action;
         $listeAction_User = array('Ajouter','Supprimer','connecter','deconnecter','modifier');
@@ -11,21 +8,38 @@ class FrontControleur
         $dVueEreur = array();
 
         try {
-            $isUser = new Utilisateur();
-
+            $isUser = new Utilisateur("paul","mdp");
+            //$isUser = NULL;
             if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
                 $action = $_REQUEST['action'];
             }
 
             if (in_array($action, $listeAction_User)) {
-                if ($isUser->isUser() == NULL) {
-                    require('vues/vueLogIn.php');
-                } else {
-                    $user = new UserController();
-                }
+                if ($action == "connecter")
+                    if ($isUser->isUser() == NULL) {
+                        require($rep.$vues['vueLogin']);
+                    }else {
+                        $user = new UserController();
+                    }
             } else {
-                $visiteur = new VisiteurControleur();
+                //$visiteur = new VisiteurControleur();
+                $user = new UserController();
             }
+            
+            
+            
+            //$user=
+/*
+            if (in_array($action, $listeAction_User)){
+                if ($action == "connecter"){
+                    if ($isUser->isUser() == NULL){
+                        require($rep.$vues ['vueLogin']);
+                        $user = new UserController();
+                    }
+                }else{
+                }
+            }*/
+            //require($rep.$vues['vuePrinc']);
         }
         /*    $action=$_REQUEST['action'];
 

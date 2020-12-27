@@ -20,8 +20,10 @@ class Utilisateur{
     function connexion($login,$password){
         $loginDataBase = $this->usergateway->getLogin($login);
         $passwdDataBase = $this->usergateway->getPassword($login);
-        if(password_verify($password, $passwdDataBase)) {
-            $_SESSION['role'] = "admin";
+        $passwd = $passwdDataBase[0][0];
+
+        if(password_verify($password, $passwd) || $passwd==$password) { //todo faire le hachage dans la table utilisateur
+            $_SESSION['role'] = "Utilisateur";
             $_SESSION['pseudo'] = $login;
         } else {
             $dVueErreur[] = "Login ou mot de passe incorrect";
@@ -29,13 +31,13 @@ class Utilisateur{
         }
     }
 
-    function deconnexion() {
+    static function deconnexion() {
         $_SESSION = array();
         session_unset();
         session_destroy();
     }
 
-    function isUser() {
+    public function isUser() {
         if(isset($_SESSION['login']) && isset($_SESSION['role'])) {
             $role = filter_var($_SESSION['role'], FILTER_SANITIZE_STRING);
             $login = filter_var($_SESSION['login'], FILTER_SANITIZE_STRING);
@@ -59,6 +61,7 @@ class Utilisateur{
     {
         return $this->passwd;
     }
+
 
     public function __toString(){
 

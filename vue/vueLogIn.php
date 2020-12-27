@@ -13,19 +13,34 @@
                 <div class="col"></div>
                 <div class="col-sm-3 bg-dark rounded" style="color: white; text-align:center; top: 150px;">
                     <h1>Log In</h1>
-                    <form class="form">
+                    <form class="form" method="post">
                         <div class="form-group">
                             <label for="usernameId">Username</label>
-                            <input type="text" id="usernameId" />
+                            <input type="text" id="usernameId" name="loginTxt"/>
                         </div>
                         <div class="form-group">
                             <label for="passwordId">Mot de passe</label>
-                            <input type="password" id="passwordId"/>
+                            <input type="password" id="passwordId" name="passwdTxt"/>
                         </div>
                         <div style="margin-top: 20px;" class="form-group">
-                            <input type="submit" class="btn btn-light" action="vue/vuePrinc.php" content="Se connecter"/>
+
+                            <?php
+                            if (!empty($dVueErreur))
+                            {
+                                echo "<ul  style='margin: 0 auto;'>";
+                                foreach ($dVueErreur as $erreur) {
+                                    echo "<li>$erreur</li>";
+                                }
+                                echo "</ul>";
+                            }
+                            ?>
+                            <button type="submit" class="btn btn-light" name="action" value="seConnecter">Se connecter</button>
+                            <form action="">
+                                <button type="submit" class="btn btn-light">Retour</button>
+                            </form>
                         </div>
                     </form>
+
                 </div>
                 <div class="col"></div>
             </div>

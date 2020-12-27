@@ -2,6 +2,97 @@
   margin: auto; 
   max-width: 300px;
 }
+.box{
+  padding: 5px;
+  color: white;
+  border-radius: 5px;
+  border: #121212;
+  background-color: rgb(39, 39, 39);
+  box-shadow: 17px 19px 8px rgba(0, 0, 0, 0.25);
+  margin: 2px;
+  margin-right: 20px;
+  background-color: #0093E9;
+  background-image: linear-gradient(160deg, #0093E9 0%, #80D0C7 100%);
+
+}
+
+
+
+.btn-grad {background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)}
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  /*box-shadow: 0 0 20px #eee;*/
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+
+
+.glow-on-hover {
+  left: 10px;
+  width: calc(100% - 20px);
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.glow-on-hover:before {
+  content: '';
+  /*background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);*/
+  background: linear-gradient(45deg, #ffffff, #808080, #ffffff, #575757,#808080);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.glow-on-hover:hover:before {
+  opacity: 1;
+}
+
+.glow-on-hover:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #272727;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
 .test{
   background-color: #212121;
   border-radius: 10px;
@@ -30,15 +121,26 @@
 }
 
 
-.etatConnection{
+.red{
+  /*color:yellowgreen;*/
+  color:red;
+}
+.green{
   color:yellowgreen;
   /*color:red;*/
 }
 
 
-
 body {
   font-family: "Lato", sans-serif;
+}
+
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
 }
 
 .sidenav {
@@ -48,17 +150,10 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: rgba(0,0,0,0.15);
+  background-color: #212121;
   overflow-x: hidden;
   padding-top: 20px;
-}
-
-.sidenav a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
 }
 
 .saisie{
