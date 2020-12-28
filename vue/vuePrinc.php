@@ -42,27 +42,32 @@
                         <div>
                             <div class="liste scrollbar-primary" style="height: 700px">
                                 <?php
-                                if (isset($dVue))
-                                    foreach ($dVue as $r){
+                                if (isset($dVue)) {
+                                    echo "<br/>";
+                                    foreach ($dVue as $r) {
+                                        $idTache = $r['idTache'];
                                         echo
                                             "<div class='glow-on-hover' style='padding-left: 10px; padding-right: 10px;'>
                                                 <p style='overflow-wrap: anywhere;'>
-                                                    <form>
-                                                        <input type='checkbox' class='checkbox' value='fait'> ".$r['Titre'].":  pour le ".$r['DatePrevu']." 
-                                                    </form>
+                                                    <input type='checkbox' class='checkbox' value='fait' id='$idTache' name='idTache'><label for='$idTache'>"
+                                            . $r['Titre'] . "  pour le " . $r['DatePrevu']
+                                            . "<br/><span style='font-size: 0.9em; font-style: italic;'>" . $r['Description'] . "</span></label>
                                                 </p>
-                                                <p style='left: 10px;'>".$r['Description']."</p>
                                             </div>";
                                     }
+                                }
                                 else
                                     echo "<p style='text-align: center'> Rien de prévu </p>"
                                 //echo "<span>" .$dVue['Titre'] .$dVue['Description']. $dVue['DatePrevu']."<span/>"; //pour voir les valeurs renseignées
 
                                 ?>
+
                             </div>
                         </div>
                         <!-- Mettre ici la liste des taches du l'utilisateur donné-->
-
+                        <form method="post" style="text-align: center; margin: 10px;">
+                            <button type="submit" class="btn btn-light" name="action" value="supprimer">Supprimer les taches faites</button>
+                        </form>
                     </div>
                 </div>
                 <div class="col-1"></div>

@@ -2,17 +2,27 @@
 
 class Tache
 {
+    private $idTache;
     private $titre;
     private $description;
     private $datePrevu;
     private $dateInscrite;
 
-    public function __construct( $titre, $description,$datePrevu, $dateInscrite){
+    public function __construct($idTache, $titre, $description,$datePrevu, $dateInscrite){
+        $this->idTache = $idTache;
         $this->titre=$titre;
         $this->description=$description;
         $this->datePrevu=$datePrevu;
         $this->dateInscrite=$dateInscrite;
         //todo Ajouter username correpondant a la tache | NULL si tache publique (pas d'utilisateur)
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdTache()
+    {
+        return $this->idTache;
     }
 
     /**

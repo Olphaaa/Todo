@@ -32,7 +32,7 @@ class TacheGateway extends Tache
 
         $tTaches= array();
         foreach ($result as $r){
-            $t = new Tache($r['Titre'],$r['Description'],$r['DatePrevu'],$r['DateInscrite']);
+            $t = new Tache($r['idTache'],$r['Titre'],$r['Description'],$r['DatePrevu'],$r['DateInscrite']);
             array_push($tTaches, $t);
         }
         return $tTaches;
@@ -50,5 +50,21 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
+    public function getDoneTasks():array{ //retourne les taches coché
+        $query = "select * from tache where isFait = 1";
+        $this->con->executeQuery($query);
 
+        $result = $this->con->getResults();
+
+        $tTaches= array();
+        foreach ($result as $r){
+            $t = new Tache($r['Titre'],$r['Description'],$r['DatePrevu'],$r['DateInscrite']);
+            array_push($tTaches, $t);
+        }
+        return $tTaches;
+    }
+    public function deleteDoneTasks(){ //retourne les taches coché
+        $query = "delete from tache where isFait = 1";
+        $this->con->executeQuery($query);
+    }
 }

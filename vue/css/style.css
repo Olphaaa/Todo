@@ -122,7 +122,7 @@
 
 
 .red{
-  /*color:yellowgreen;*/
+  /*color:yellowgreen;**/
   color:red;
 }
 .green{
@@ -130,6 +130,10 @@
   /*color:red;*/
 }
 
+input[type=checkbox]:checked + label {
+  color: #4c4c4c;
+  text-decoration: line-through;
+} /*This is the MDN spec for doing this*/
 
 body {
   font-family: "Lato", sans-serif;
@@ -150,8 +154,8 @@ body {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: rgba(0,0,0,0.15);
   background-color: #212121;
+  background-color: rgba(0,0,0,0.15);
   overflow-x: hidden;
   padding-top: 20px;
 }

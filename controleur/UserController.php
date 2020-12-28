@@ -19,6 +19,10 @@ class UserController{
                 case 'validationFormulaire':
                     $this->validationFormulaire($dVueErreur);
                     break;
+                case 'supprimer':
+                    echo "bien le bonjour!";
+                    $this->supprimer();
+                    break;
                 default:
                     $dVueEreur[]="Erreur d'appel php ($action)";
                     require ($rep.$vues['vuePrinc']);
@@ -36,6 +40,15 @@ class UserController{
             $dVueErreur[] =	"Erreur générale !";
             //require ($rep.$vues['erreur']);
         }
+    }
+
+    public function supprimer(){
+        global $con,$rep,$vues;
+        $idTahce = $_POST['idTache'];
+        echo "je vais supprimer la tache: $idTahce";
+        $Tgateway = new TacheGateway($con);
+        $Tgateway->deleteDoneTasks();
+        $this->Reinit();
     }
 
     public function seConnecter($dVueErreur){
@@ -67,6 +80,7 @@ class UserController{
         foreach ($res as $r)
         {
             $dTmp=array(
+                'idTache'=>$r->getIdTache(),
                 'Titre'=>$r->getTitre(),
                 'Description'=>$r->getDescription(),
                 'DatePrevu'=>$r->getDatePrevu(),
@@ -98,6 +112,7 @@ class UserController{
         foreach ($res as $r)
         {
             $dTmp=array(
+                'idTache'=>$r->getIdTache(),
                 'Titre'=>$r->getTitre(),
                 'Description'=>$r->getDescription(),
                 'DatePrevu'=>$r->getDatePrevu(),
