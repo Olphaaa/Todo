@@ -43,6 +43,9 @@
                 <div style="margin-top: 20px;" class="form-group">
                     <button type="submit" class="btn btn-outline-success" >S'inscrire</button>
                 </div>
+                <div style="margin-top: 20px;" class="form-group">
+                    <a href="" class="btn btn-outline-warning" >Retour</a>
+                </div>
             </form>
 
         </div>

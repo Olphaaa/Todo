@@ -45,14 +45,24 @@ class Validation
         }
     }
 
-    static function val_login(string &$login,array &$dvueErreur){
-        if(!isset($login) || $login == "" ){
-            $dvueErreur[] = "Login non renseigné";
+    static function val_login(string &$login,array &$dVueErreur){
+        if(!isset($login) || $login == "" || empty($login)){
+
+            $dVueErreur[] = "Login non renseigné";
         }
 
-        if($login != filter_var($login,FILTER_SANITIZE_STRING)){
-            $dvueErreur[] = "Login n"."'est pas une chaine de caractères";
+        if($login != filter_var($login,FILTER_SANITIZE_STRING)) {
+            $dVueErreur[] = "Login n" . "'est pas une chaine de caractères";
+        }
+    }
+
+    static function val_passwd(string &$passwd,array &$dVueErreur){
+        if(!isset($passwd) || $passwd == "" || empty(trim($passwd))){
+            $dVueErreur[] = "Password non renseigné";
         }
 
+        if($passwd != filter_var($passwd,FILTER_SANITIZE_STRING)) {
+            $dVueErreur[] = "Password n" . "'est pas une chaine de caractères";
+        }
     }
 }

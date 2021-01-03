@@ -11,7 +11,7 @@ class VisiteurControleur{
                     $this->Reinit();
                     break;
                 case "validationFormulaire":
-                    $this->validationFormulaire($dVueErreur);
+                    $this->validationFormulaireV($dVueErreur);
                     break;
                 case "supprimer":
                     $this->supprimer();
@@ -23,7 +23,7 @@ class VisiteurControleur{
                     $this->afficherInscription();
                     break;
                 default:
-                    $dVueEreur[]="Erreur d'appel php ($action)";
+                    $dVueErreur[]="Erreur d'appel php visiteur($action)";
                     require ($rep.$vues['vuePrinc']);
                     break;
             }
@@ -90,5 +90,43 @@ class VisiteurControleur{
         }
         require ($rep.$vues['vuePrinc']);
     }
+
+    function inscription(array $dVueErreur){
+        global $rep,$vues,$con;
+        $login = $_POST['usernameTxt'];
+        $passw1 = $_POST['pass1Txt'];
+        $confirmationPass = $_POST['pass2Txt'];
+
+        //var_dump($login,$passw1,$confirmationPass);
+        //Validation::val_inscription_login();
+        Validation::val_login($login,$dVueErreur);
+        Validation::val_passwd($passw1,$dVueErreur);
+        Validation::val_passwd($confirmationPass,$dVueErreur);
+        if (empty($dVueErreur)){
+            if ($passw1 == $confirmationPass){
+                $UGateway = new UtilisateurGateway($con);
+                try {
+                    $UGateway->insertUser($login,$passw1);
+                    require ($rep.$vues['vueLogin']);
+                }catch (Exception $e){
+                    $dVueErreur[] = $e->getMessage();
+                    require ($rep.$vues['vueInscription']);
+                }
+            }
+            else{
+                $dVueErreur[] = "Mots de passe différents";
+                require($rep.$vues['vueInscription']);
+            }
+        }else{
+            //Si il y a une erreur, on rappelle la VueLogin
+            require ($rep.$vues['vueInscription']);
+        }
+
+    }
+
+     public function afficherInscription(){
+        global $rep,$vues;
+        require ($rep.$vues['vueInscription']);
+     }
 }
 ?>

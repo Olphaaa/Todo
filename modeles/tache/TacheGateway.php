@@ -32,8 +32,8 @@ class TacheGateway extends Tache
     }
 
     public function getResultUtilisateur():array{
-        $login= $_SESSION['pseudo'];
-        $query = "select * from tache where Username = '$login' or Username is null or Username='' order by DatePrevu ";
+        $login=$_SESSION['pseudo'];
+        $query="select * from tache where Username = '$login' or Username is null or Username='' order by DatePrevu ";
         $this->con->executeQuery($query);
 
         $result = $this->con->getResults();

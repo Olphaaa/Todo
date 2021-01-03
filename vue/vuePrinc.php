@@ -2,8 +2,8 @@
 <html>
 <!--Etat de maquette pour le moment-->
     <head>
-        <title>todo</title>
-        <link rel="stylesheet" href="vue/css/style.css" type="text/css"> <!--todo  le lien de foncitonne pas-->
+        <title>Todo List - Olivier & Fabien</title>
+        <link rel="stylesheet" href="vue/css/style.css" type="text/css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <meta charset="UTF-8"/>
     </head>
@@ -42,7 +42,7 @@
             ?>
             <!--<a href="#about">Toutes les taches</a>
             <a href="#services">Aujourd'hui</a>
-            <a href="#clients">Cette semaine</a>
+            <a href="#clients">Cette semaine</a>-->
         </div>
         <div style="position: relative; top: 50px;" class="container">
            <div class="row">
