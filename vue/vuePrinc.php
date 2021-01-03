@@ -8,10 +8,10 @@
         <meta charset="UTF-8"/>
     </head>
 
-    <body  class="body">
+    <body class="body">
         <div class="sidenav">
             <?php
-            if ($_SESSION['pseudo'] != null){
+            if (isset($_SESSION['pseudo'])){
                 $username = $_SESSION['pseudo'];
                 $etat="green";
             }
@@ -22,14 +22,25 @@
             echo "<h1 style=\"text-align: center;\">". $username. "<span style=\"font-size: 100px; position:absolute;top: -25px;\" class=\"$etat\">.</span></h1><br /><br />";
             //echo $u->getUsername();
             ?>
-            <form method="post" style="text-align: center;">
-                <button type="submit" class="btn btn-light" name="action" value="connecter">Se connecter</button>
-            </form>
-            <br/>
-            <form method="post" style="text-align: center;">
-                <button type="submit" class="btn btn-light" name="action" value="deconnexion">Se deconnecter</button>
-            </form>
-            <a href="#about">Toutes les taches</a>
+            <?php
+            if (!isset($_SESSION['pseudo'])){
+                echo "
+                <form method=\"post\" style=\"text-align: center;\">
+                    <button type=\"submit\" class=\"btn btn-outline-info\" name=\"action\" value=\"connecter\">Se connecter</button>
+                </form>
+                ";
+            }
+            ?>
+            <?php
+            if (isset($_SESSION['pseudo'])){
+                echo "
+                <form method=\"post\" style=\"text-align: center;\">
+                    <button type=\"submit\" class=\"btn btn-outline-info\" name=\"action\" value=\"deconnexion\">Se deconnecter</button>
+                </form>
+                ";
+            }
+            ?>
+            <!--<a href="#about">Toutes les taches</a>
             <a href="#services">Aujourd'hui</a>
             <a href="#clients">Cette semaine</a>
         </div>
@@ -39,20 +50,24 @@
                 <div class="col-md-5" >
                     <div class="container test " >
                         <h1 class="titre">Taches:</h1>
+                        <form name="listeTache" method="post" style="text-align: center; margin: 10px;">
                         <div>
-                            <div class="liste scrollbar-primary" style="height: 700px">
+                            <div class="liste scrollbar-primary" >
                                 <?php
                                 if (isset($dVue)) {
                                     echo "<br/>";
                                     foreach ($dVue as $r) {
                                         $idTache = $r['idTache'];
                                         echo
-                                            "<div class='glow-on-hover' style='padding-left: 10px; padding-right: 10px;'>
-                                                <p style='overflow-wrap: anywhere;'>
-                                                    <input type='checkbox' class='checkbox' value='fait' id='$idTache' name='idTache'><label for='$idTache'>"
-                                            . $r['Titre'] . "  pour le " . $r['DatePrevu']
-                                            . "<br/><span style='font-size: 0.9em; font-style: italic;'>" . $r['Description'] . "</span></label>
-                                                </p>
+                                            "<div class='glow-on-hover p-1  mb-3'>
+                                                <div class='row p-2'>
+                                                   <div style='margin-left: 15px;'>
+                                                      <input type='checkbox' class='checkbox' value='fait' id='id$idTache' name='$idTache'>
+                                                       <label for='id$idTache' class='clickable'>
+                                                                ".$r['Titre'] . "  pour le " . $r['DatePrevu']. "<br/>".$r['Description'] . "
+                                                       </label>
+                                                   </div>
+                                                </div>
                                             </div>";
                                     }
                                 }
@@ -65,8 +80,7 @@
                             </div>
                         </div>
                         <!-- Mettre ici la liste des taches du l'utilisateur donné-->
-                        <form method="post" style="text-align: center; margin: 10px;">
-                            <button type="submit" class="btn btn-light" name="action" value="supprimer">Supprimer les taches faites</button>
+                            <button type="submit" class="btn btn-outline-danger mb-5" name="action" value="supprimer" >Supprimer les taches faites</button>
                         </form>
                     </div>
                 </div>
@@ -76,7 +90,7 @@
                         <div style="white-space: nowrap; padding: 10px; " class="row">
                             <h1 class="titre" style="text-align: center;width: 100%">Ajouter:</h1>
                             <div class="row mx-auto">
-                                <form method="post" name="myform" id="myform">
+                                <form method="post" name="myform" id="myform" class="text-center">
                                     <div class="form-group">
                                         <label for="inputNom">Nom de tache</label>
                                         <input type="text" class="form-control" id="inputNom" placeholder="Nom de la tache" name="txtNom">
@@ -89,7 +103,7 @@
                                         <label for="inputDate">Date prévu</label>
                                         <input type="date" class="form-control" id="inputDate" name="txtDateP"/>
                                     </div>
-                                    <button type="submit" class="btn btn-light" name="action"
+                                    <button type="submit" class="btn btn-outline-success" name="action"
                                             value="validationFormulaire">Ajouter
                                     </button>
                                 </form>

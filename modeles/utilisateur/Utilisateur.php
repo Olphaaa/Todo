@@ -3,32 +3,26 @@
 
 class Utilisateur{
 
-    private $username; //todo ajout de username comme clé privé a la place de idUtilisateur
+    private $username;
     private $passwd;
-    //private $photoProfil; pas oblié de le faire ( peut etre trop compliqué)
 
-    public function __construct($username,$passwd)
+    public function __construct($username,$passwd) //todo voir s'il faut un UserMdl
     {
         global $con;
         $this->usergateway = new UtilisateurGateway($con);
-        /*
-        $this->username = $username;
-        $this->passwd = $passwd;
-        */
     }
 
-    function connexion($login,$password){
+    function connexion($login,$password,&$dVueErreur): bool{
         $loginDataBase = $this->usergateway->getLogin($login);
         $passwdDataBase = $this->usergateway->getPassword($login);
-        $passwd = $passwdDataBase[0][0];
-
-        if(password_verify($password, $passwd) || $passwd==$password) { //todo faire le hachage dans la table utilisateur
+        if( !empty($passwdDataBase[0]) && !empty($loginDataBase[0]) && password_verify($password, $passwdDataBase[0][0])) {
             $_SESSION['role'] = "Utilisateur";
             $_SESSION['pseudo'] = $login;
         } else {
             $dVueErreur[] = "Login ou mot de passe incorrect";
-            throw new Exception("Login ou mot de passe incorrect", 1);
+            return false;
         }
+        return true;
     }
 
     static function deconnexion() {

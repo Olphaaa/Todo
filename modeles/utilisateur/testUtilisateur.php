@@ -9,10 +9,7 @@ $mdp="mdp";
 $dsn='mysql:host=localhost;dbname='.$base.';';
 
 $con = new Connection($dsn, $login,$mdp);
-//$u = new Utilisateur("dfkjhhgvoisudhfghsdlfk","mdp"); //todo faire attention pour le new Utilisateur
 $UGateway = new UtilisateurGateway(new Connection($dsn,$login, $mdp));
-
-//$UGateway->insertion($u);
 $result = $UGateway->getResult();
 foreach ($result as $val){
     echo $val->getUsername()." <br/>";

@@ -22,6 +22,7 @@ $con = new Connection($dsn, $login,$mdp);
 
 $vues['erreur']='vue/erreur.php';
 $vues['vuePrinc']='vue/vuePrinc.php';
+$vues['vueInscription']='vue/vueInscription.php';
 $vues['vueLogin']='vue/vueLogIn.php';
 
 

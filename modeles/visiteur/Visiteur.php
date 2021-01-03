@@ -1,10 +1,10 @@
 <?php
 
 
-class Visiteur extends Utilisateur
+class Visiteur extends Utilisateur //pas utilisé
 {
     public function __construct($username, $passwd)
     {
-        parent::__construct($username, $passwd);//todo bah non en fé
+        parent::__construct($username, $passwd);
     }
 }

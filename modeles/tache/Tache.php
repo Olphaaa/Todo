@@ -14,8 +14,9 @@ class Tache
         $this->description=$description;
         $this->datePrevu=$datePrevu;
         $this->dateInscrite=$dateInscrite;
-        //todo Ajouter username correpondant a la tache | NULL si tache publique (pas d'utilisateur)
     }
+
+
 
     /**
      * @return mixed

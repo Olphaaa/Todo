@@ -26,37 +26,21 @@ class UtilisateurGateway /*extends Utilisateur*/{
         $results=$this->con->getResults();
         return $results;
     }
-
-
-    /*
-    public function insertion(Tache $t){
-        if (!$this->isExiste($u->getUsername(), $u->getPasswd()))
-        {
-            $query = "insert into utilisateur values ('".$u->getUsername()."','".$u->getPasswd()."')";
+    public function insertUser($login,$passwd){
+        $mdpHash=password_hash($passwd,PASSWORD_DEFAULT);
+        $query = "insert into utilisateur values ('$login','$mdpHash')";
+        if (!$this->isExiste($login)){
             $this->con->executeQuery($query);
         }
+        else{
+            throw new Exception("Utilisateur déjà existant");
+        }
     }
-
-    public function isExiste(string $username, string $mdp){
-        $query = "select * from utilisateur where Username='$username' and passwd='$mdp'";
+    public function isExiste(string $username):bool{
+        $query = "select * from utilisateur where Username='$username'";
         $this->con->executeQuery($query);
         if ($this->con->getResults() == null)
             return false;
-
         return true;
     }
-
-    public function getResult():array{
-        $query = "select * from utilisateur";
-        $this->con->executeQuery($query);
-
-        $result = $this->con->getResults();
-
-        $tUser= array();
-        foreach ($result as $r){
-            $t = new Utilisateur($r['Username'],$r['passwd']);
-            array_push($tUser, $t);
-        }
-        return $tUser;
-    }*/
 }

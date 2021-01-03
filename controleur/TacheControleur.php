@@ -1,6 +1,6 @@
 <?php
 
-class TacheControleur {
+class TacheControleur { //pour tester si les instances des taches fonctionnent
 
     function __construct() {
         global $rep,$vues; // nécessaire pour utiliser variables globales
@@ -77,14 +77,8 @@ class TacheControleur {
         $dateP=$_POST['txtDateP']; // txtDate = Date de la tache
         $ddJour =date('Y-m-d H:i:s'); //format pour pouvoir l'inserer correctement dans la bdd
         Validation::val_form($titre,$desc,$dateP,$dVueEreur); //Envoi des valeurs a la methode val_form de Validation.php qui va controler les champs
-        //todo voir co dans gateway
-        $base="dbolblanc1";
-        $login="olblanc1";
-        $mdp="mdp";
-        $dsn='mysql:host=localhost;dbname='.$base.';';
-        $Tgate = new TacheGateway(new Connection($dsn,$login,$mdp));
+        $Tgate = new TacheGateway($con);
 
-        //todo voir s'il faut bien afficher la liste, ce n'est pas utile vu que l'on doit inserer les valeurs dans la BDD
         if (empty($dVueEreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
             $Tgate->insertion(new Tache($titre,$desc,$dateP,$ddJour));
         }

@@ -4,60 +4,26 @@ class FrontControleur{
         global $rep,$vues,$action;
         $listeAction_User = array('Ajouter','Supprimer','connecter','deconnecter','modifier');
         session_start();
-
-        $dVueEreur = array();
+        $dVueErreur = array();
 
         try {
-            $isUser = new Utilisateur("paul","mdp");
-            //$isUser = NULL;
-            if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) {
+            // void dans le fichier bin.php pour ce qu'il y avait avant
+            if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) { // recup l'action de la vue principale
                 $action = $_REQUEST['action'];
             }
-
-            if (in_array($action, $listeAction_User)) {
-                if ($action == "connecter")
-                    if ($isUser->isUser() == NULL) {
-                        require($rep.$vues['vueLogin']);
-                    }else {
-                        $user = new UserController();
-                    }
-            } else {
-                //$visiteur = new VisiteurControleur();
-                $user = new UserController();
-            }
-            
-            
-            
-            //$user=
-/*
-            if (in_array($action, $listeAction_User)){
-                if ($action == "connecter"){
-                    if ($isUser->isUser() == NULL){
-                        require($rep.$vues ['vueLogin']);
-                        $user = new UserController();
-                    }
-                }else{
+            if( isset($_SESSION['pseudo'])) {
+                //var_dump($_SESSION['pseudo'],$action);
+                $cont = new UserController();
+            }else{
+                if ($action == "connecter") {
+                    require($rep . $vues['vueLogin']);
                 }
-            }*/
-            //require($rep.$vues['vuePrinc']);
-        }
-        /*    $action=$_REQUEST['action'];
-
-            switch($action) {
-
-                case NULL:
-                    $this->Reinit();
-                    break;
-                case "validationFormulaire":
-                    $this->ValidationFormulaire($dVueEreur);
-                    break;
-                //mauvaise action
-                default://si action non prévu
-                    $dVueEreur[]="Erreur d'appel php";
-                    require ($rep.$vues['vuePrinc']);
-                    break;
+                elseif ($action == "seConnecter" || $action == "deconnexion"){
+                    $cont = new UserController();
+                }else
+                    $cont = new VisiteurControleur();
             }
-        }*/
+        }
         catch (PDOException $e)
         {
             //si erreur BD, pas le cas ici
