@@ -63,7 +63,8 @@ class UserController{
         //Si la vueErreur est vide, donc pas d'erreur alors on construit un utilisateur avec le login et le motdepasse saisis
         //On le connecte et on reinitialise la vue
         if (empty($dVueErreur)) {
-            $u = new Utilisateur($login, $passwd);
+            //$u = new Utilisateur($login, $passwd);
+            $u=new UserMdl();
             $isSucced = $u->connexion($login, $passwd,$dVueErreur);
             if ($isSucced) {
                 $this->Reinit();
@@ -77,7 +78,7 @@ class UserController{
 
     public function seDeconnecter(){
         //echo "Coucou";
-        Utilisateur::deconnexion();
+        UserMdl::deconnexion();
         //echo "je suis la deco de UserController";
         $this->Reinit();
         //$visi = new VisiteurControleur();

@@ -3,7 +3,7 @@
 
  class  TacheMdl
 {
-    public static function supprimerTaches(array $tab){
+    public static function supprimerTaches(array $tab){ //pour éviter de supprimer via l'url avec la méthode GET par exemple
         // var_dump($idTache);
         global $con;
 
