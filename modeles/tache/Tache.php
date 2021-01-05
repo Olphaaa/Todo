@@ -8,7 +8,7 @@ class Tache
     private $datePrevu;
     private $dateInscrite;
 
-    public function __construct($idTache, $titre, $description,$datePrevu, $dateInscrite){
+    public function __construct($idTache, $titre, $description,$datePrevu, $dateInscrite){ //definition d'une tache
         $this->idTache = $idTache;
         $this->titre=$titre;
         $this->description=$description;

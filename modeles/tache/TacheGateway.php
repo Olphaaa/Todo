@@ -1,7 +1,7 @@
 <?php
 require_once ("Tache.php");
 
-class TacheGateway extends Tache
+class TacheGateway //permet de faire les intérations avec la base de donnée
 {
     private $con;
 
@@ -9,14 +9,20 @@ class TacheGateway extends Tache
         $this->con=$con;
     }
 
-    public function insertionUtilisateur(Tache $t){
+    public function insertionUtilisateur(Tache $t){ //insert une tache avec le nom de l'utilisateur qu'il l'a saisie
         $fait = 0;
         $login = $_SESSION['pseudo'];
         $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."','".$fait."','".$login."')";
         $this->con->executeQuery($query);
     }
 
-    public function isUserTache(int $idTache){
+    public function insertionVisiteur(Tache $t){//insert une tache sans le nom de l'utilisateur , cela veux dire que la tache est publique
+        $fait = 0;
+        $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."','".$fait."','".NULL."')";
+        $this->con->executeQuery($query);
+    }
+
+    public function isUserTache(int $idTache){ //permet de savoir si une tache correspond a un utilisateur (utile pour contourner les injections)
         $query = "select username from tache where idTache = $idTache";
         $this->con->executeQuery($query);
         $result = $this->con->getResults();
@@ -25,13 +31,7 @@ class TacheGateway extends Tache
         return $result[0]['username'];
     }
 
-    public function insertionVisiteur(Tache $t){
-        $fait = 0;
-        $query = "insert into tache values ('".NULL."','".$t->getTitre()."','".$t->getDescription()."','".$t->getDatePrevu()."','".$t->getDateInscrite()."','".$fait."','".NULL."')";
-        $this->con->executeQuery($query);
-    }
-
-    public function getResultUtilisateur():array{
+    public function getResultUtilisateur():array{ //récupère toutes les taches d'un utilisateur précis
         $login=$_SESSION['pseudo'];
         $query="select * from tache where Username = '$login' or Username is null or Username='' order by DatePrevu ";
         $this->con->executeQuery($query);
@@ -45,7 +45,7 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
-    public function getResultVisiteur():array{
+    public function getResultVisiteur():array{ //récupère toutes les tacheq sans utilisateurs, donc publiques
         $query = "select * from tache where Username IS NULL or Username = '' order by DatePrevu";
         $this->con->executeQuery($query);
 
@@ -58,7 +58,7 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
-    public function getDoneTasks():array{ //retourne les taches coché
+    public function getDoneTasks():array{ //retourne les taches coché //non utilisé
         $query = "select * from tache where isFait = 1";
         $this->con->executeQuery($query);
 
@@ -71,13 +71,15 @@ class TacheGateway extends Tache
         }
         return $tTaches;
     }
-    public function deleteDoneTasks($tabFait){ //retourne les taches coché
+
+    public function deleteDoneTasks($tabFait){ //supprime toutes les taches faites // non utilisé
         foreach ($tabFait as $item) {
             $query = "delete from tache where idTache = $item";
         }
         $this->con->executeQuery($query);
     }
-    public function deleteOneTask($idTache){
+
+    public function deleteOneTask($idTache){ //supprime une tache dont son idTache est passé en paramètre
         $query = "delete from tache where idTache = $idTache";
         $this->con->executeQuery($query);
     }

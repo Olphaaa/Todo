@@ -8,7 +8,7 @@ class VisiteurControleur{
         try{
             switch($action){
                 case NULL:
-                    $this->Reinit();
+                    $this->Reinit($dVueErreur);
                     break;
                 case "validationFormulaire":
                     $this->validationFormulaireV($dVueErreur);
@@ -36,7 +36,7 @@ class VisiteurControleur{
         }
     }
 
-    public function Reinit(){
+    public function Reinit($dVueErreur){ //réinisialise la page en chargeant toutes les données (avec la possibilité de communiquer les errues)
         global $rep,$vues,$con; // nécessaire pour utiliser variables globales
 
         $gateway = new TacheGateway($con);
@@ -56,13 +56,12 @@ class VisiteurControleur{
         require ($rep.$vues['vuePrinc']);
     }
 
-    public function supprimer(){
+    public function supprimer(){//supprime une tache spécifiée, en envoyant un tableau contenant les taches
         TacheMdl::supprimerTaches($_POST);
-        $this->Reinit();
-
+        $this->Reinit(null);
     }
 
-    private function validationFormulaireV(array $dVueErreur)    {
+    private function validationFormulaireV(array $dVueErreur){//permet saisie, vérification et l'ajout d'une tache du formulaire
         global $rep, $vues, $con;
 
         $titre=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
@@ -76,29 +75,16 @@ class VisiteurControleur{
         if (empty($dVueErreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
             $Tgate->insertionVisiteur(new Tache(null,$titre,$desc,$dateP,$ddJour));
         }
-        $res=$Tgate->getResultVisiteur();
-        foreach ($res as $r)
-        {
-            $dTmp=array(
-                'idTache'=>$r->getIdTache(),
-                'Titre'=>$r->getTitre(),
-                'Description'=>$r->getDescription(),
-                'DatePrevu'=>$r->getDatePrevu(),
-                'DateInscrite'=>$r->getDateInscrite(),
-            );
-            $dVue[]=$dTmp;
-        }
-        require ($rep.$vues['vuePrinc']);
+        $this->Reinit($dVueErreur);
     }
 
-    function inscription(array $dVueErreur){
+    function inscription(array $dVueErreur){ //permet d'inscrire un nouvel utilisateur
         global $rep,$vues,$con;
         $login = $_POST['usernameTxt'];
         $passw1 = $_POST['pass1Txt'];
         $confirmationPass = $_POST['pass2Txt'];
 
-        //var_dump($login,$passw1,$confirmationPass);
-        //Validation::val_inscription_login();
+        //Vérification de tout le champs↓
         Validation::val_login($login,$dVueErreur);
         Validation::val_passwd($passw1,$dVueErreur);
         Validation::val_passwd($confirmationPass,$dVueErreur);
@@ -124,7 +110,7 @@ class VisiteurControleur{
 
     }
 
-     public function afficherInscription(){
+     public function afficherInscription(){//permet d'afficher la page de d'inscription une fois l'action reçue
         global $rep,$vues;
         require ($rep.$vues['vueInscription']);
      }

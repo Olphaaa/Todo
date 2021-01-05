@@ -4,9 +4,8 @@ class UserController{
         global $rep, $vues, $action;
         $dVueErreur = array();
         try {
-            $this->doActionU($action,$dVueErreur);
+            $this->doActionU($action,$dVueErreur); //fait appel a la méthode pour exécuter l'action
         }
-
         catch(PDOException $e) {
             echo $e->getMessage();
             $dVueErreur[] =	"Erreur base de données !";
@@ -19,11 +18,11 @@ class UserController{
         }
     }
 
-    public function doActionU($action, $dVueErreur){
+    public function doActionU($action, $dVueErreur){//execute l'action passé en paramètre
         global $rep, $vues;
         switch($action) {
             case NULL:
-                $this->Reinit();
+                $this->Reinit($dVueErreur);
                 break;
             case 'seConnecter':
                 $this->seConnecter($dVueErreur);
@@ -45,9 +44,9 @@ class UserController{
         }
     }
 
-    public function supprimer(){
+    public function supprimer(){ //méthode qui permet de suprrimer les taches cochées
         TacheMdl::supprimerTaches($_POST);
-        $this->Reinit();
+        $this->Reinit(null);
     }
 
     //Methode qui permet a un user de se connecter, on recupere ce qu'il a saisi en login et motdepasse, on le passe a Validation qui
@@ -67,7 +66,7 @@ class UserController{
             $u=new UserMdl();
             $isSucced = $u->connexion($login, $passwd,$dVueErreur);
             if ($isSucced) {
-                $this->Reinit();
+                $this->Reinit($dVueErreur);
                 return;
             }
         }
@@ -76,15 +75,12 @@ class UserController{
 
     }
 
-    public function seDeconnecter(){
-        //echo "Coucou";
+    public function seDeconnecter(){//
         UserMdl::deconnexion();
-        //echo "je suis la deco de UserController";
-        $this->Reinit();
-        //$visi = new VisiteurControleur();
+        $this->Reinit(null);
     }
 
-    public function Reinit(){
+    public function Reinit($dVueErreur){
         global $rep,$vues,$con; // nécessaire pour utiliser variables globales
 
         $gateway = new TacheGateway($con);
@@ -105,7 +101,7 @@ class UserController{
         require ($rep.$vues['vuePrinc']);
     }
 
-    private function validationFormulaireU(array $dVueErreur)    {
+    private function validationFormulaireU(array $dVueErreur){ //permet saisie, vérification et l'ajout d'une tache du formulaire
         global $rep, $vues, $con;
 
         $titre=$_POST['txtNom']; // txtNom = nom du champ texte dans le formulaire
@@ -119,19 +115,7 @@ class UserController{
         if (empty($dVueErreur)){// s'il n'y a pas d'erreur, alors on ajoute a la bdd
             $Tgate->insertionUtilisateur(new Tache(null,$titre,$desc,$dateP,$ddJour));
         }
-        $res=$Tgate->getResultUtilisateur();
-        foreach ($res as $r)
-        {
-            $dTmp=array(
-                'idTache'=>$r->getIdTache(),
-                'Titre'=>$r->getTitre(),
-                'Description'=>$r->getDescription(),
-                'DatePrevu'=>$r->getDatePrevu(),
-                'DateInscrite'=>$r->getDateInscrite(),
-            );
-            $dVue[]=$dTmp;
-        }
-        require ($rep.$vues['vuePrinc']);
+        $this->Reinit($dVueErreur);
     }
 }
 ?>

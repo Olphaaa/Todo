@@ -30,7 +30,7 @@ class Autoload
         }
     }
 
-    private static function _autoload($class) //permet de charger les classes
+    private static function _autoload($class) //permet de charger les classes mentionné
     {
         global $rep;
         $filename = $class . '.php';

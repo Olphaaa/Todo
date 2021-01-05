@@ -12,7 +12,7 @@ class Connection extends PDO
         $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     }
 
-    public function executeQuery(string $query, array $parameters = []): bool
+    public function executeQuery(string $query, array $parameters = []): bool //execute la requete sur la base de données
     {
         $this->stmt = parent::prepare($query);
         foreach ($parameters as $name => $value) {
@@ -22,7 +22,7 @@ class Connection extends PDO
         return $this->stmt->execute();
     }
 
-    public function getResults(): array
+    public function getResults(): array //permet de récupérer les valeurs de la base de données
     {
         return $this->stmt->fetchall();
     }

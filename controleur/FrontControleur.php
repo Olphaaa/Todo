@@ -2,17 +2,15 @@
 class FrontControleur{
     function __construct(){
         global $rep,$vues,$action;
-        $listeAction_User = array('Ajouter','Supprimer','connecter','deconnecter','modifier');
+        //$listeAction_User = array('Ajouter','Supprimer','connecter','deconnexion','modifier','seConnecter');
         session_start();
         $dVueErreur = array();
 
         try {
-            // void dans le fichier bin.php pour ce qu'il y avait avant
             if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) { // recup l'action de la vue principale
                 $action = $_REQUEST['action'];
             }
             if( isset($_SESSION['pseudo'])) {
-                //var_dump($_SESSION['pseudo'],$action);
                 $cont = new UserController();
             }else{
                 if ($action == "connecter") {
@@ -24,14 +22,14 @@ class FrontControleur{
                     $cont = new VisiteurControleur();
             }
         }
-        catch (PDOException $e)
+        catch (PDOException $e) //affiche les erreurs liées a la base de données
         {
             //si erreur BD, pas le cas ici
-            $dVueEreur[] =	"Erreur PDO!!! ";
+            $dVueEreur[] =	"Erreur PDO!!! " .$e->getMessage();
             require($rep.$vues['erreur']);
         }
-        catch (Exception $e2) {
-            $dVueEreur[] = "Erreur inattendue!!! ";
+        catch (Exception $e) { //affiche les autres erreurs
+            $dVueEreur[] = "Erreur inattendue!!! ".$e->getMessage();
             require($rep.$vues['erreur']);
         }
     }
