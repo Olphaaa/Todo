@@ -62,7 +62,6 @@ class UserController{
         //Si la vueErreur est vide, donc pas d'erreur alors on construit un utilisateur avec le login et le motdepasse saisis
         //On le connecte et on reinitialise la vue
         if (empty($dVueErreur)) {
-            //$u = new Utilisateur($login, $passwd);
             $u=new UserMdl();
             $isSucced = $u->connexion($login, $passwd,$dVueErreur);
             if ($isSucced) {

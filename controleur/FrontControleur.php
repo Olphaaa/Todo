@@ -2,12 +2,11 @@
 class FrontControleur{
     function __construct(){
         global $rep,$vues,$action;
-        //$listeAction_User = array('Ajouter','Supprimer','connecter','deconnexion','modifier','seConnecter');
         session_start();
         $dVueErreur = array();
 
         try {
-            if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) { // recup l'action de la vue principale
+            if (isset($_REQUEST['action']) && !empty($_REQUEST['action'])) { // recup l'action
                 $action = $_REQUEST['action'];
             }
             if( isset($_SESSION['pseudo'])) {
